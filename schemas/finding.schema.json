@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "finding.schema.json",
-  "title": "K-DAPI Finding",
+  "title": "K-DARI Finding",
   "type": "object",
   "additionalProperties": false,
   "required": ["finding_id", "statement", "claim_type", "classification", "evidence_ids", "confidence", "jurisdiction", "as_of_date"],

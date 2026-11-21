@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "report.schema.json",
-  "title": "K-DAPI Research Report",
+  "title": "K-DARI Research Report",
   "type": "object",
   "additionalProperties": false,
   "required": ["report_id", "title", "analysis_date", "jurisdictions", "research_question", "findings", "limitations"],

@@ -48,3 +48,7 @@ EIB와 다른 홍콩 정부 다중통화 디지털 녹색채권을 신규 연구
 ## D-012 Phase 9 개발 도구 전환: Codex → Claude Code (2026-11-18)
 
 Codex 사용량 제한으로 Phase 9 후속 작업을 Claude Code가 이어받는다. 변경 범위는 (1) `scripts/controlled_experiment.py`의 `--runtime claude` 실행기, `setup-claude`, `K_DARI_EXP_DIR` 코호트 분리, (2) 동일 모델·환경 Claude 코호트 `evaluations/controlled-experiment-claude/`, (3) `CLAUDE.md`(AGENTS.md를 가리키는 얇은 포인터)와 문서 갱신이다. 기존 Codex 코호트(`evaluations/controlled-experiment/`, 완료 21 슬롯·실패 99 시도)는 수정·삭제·합산하지 않고 보존한다. 분석 엔진, 라우터, 스키마, 동결 프롬프트·루브릭은 변경하지 않았다. Codex와 Claude 결과는 모델·도구·검색이 달라 서로 합산하거나 인과 비교하지 않는다.
+
+## D-013 현재 식별자를 K-DARI로 통일 (2026-11-21)
+
+현재 공개 저장소와 스킬 식별자를 `junjunny/k-digital-asset-research-intelligence`, `k-digital-asset-research-intelligence`로 통일한다. 별도 legacy alias skill은 만들지 않는다. 두 식별자를 함께 배포하면 자동 발견 후보가 중복되고 실험 격리가 약해질 수 있기 때문이다. 이전 K-DAPI 명칭·저장소·설치 경로는 당시 실행을 재현하는 실험 코드와 기록에서만 보존하며, 현재 사용자 안내에는 마이그레이션 경계를 명시한다.

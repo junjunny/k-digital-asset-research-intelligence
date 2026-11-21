@@ -38,6 +38,13 @@
 | Phase 9 Claude 코호트 | 완료: 120/120 답변·blind copy |
 | Phase 9 AI 보조평가 | 통과: 120/120 고유 ID, 점수 합계 일치, 공식·관련 URL 969개 |
 | AI 사전검토 분리 | 통과: 120개 모두 `NEEDS_HUMAN_VERIFICATION`, 인간 `reviews.json` 해시 불변 |
+| K-DARI 현재 식별자 로컬 탐지 | 통과: Skills CLI 1.9.0, 1개 스킬 탐지 |
+| 격리 copy 설치 | 통과: Codex·Claude Code 대상, 현재 식별자·references·scripts 확인 |
+| Codex 명시 호출 | 통과: Codex CLI 0.169.0, 현재 식별자와 투자추천 금지 규칙 응답 |
+| Claude Code 명시 호출 | 미검증: 2.1.327에서 스킬 발견, OAuth 만료로 모델 요청 전 차단 |
+| 자동 활성화 | 미검증: 현재 식별자에 대한 일반화 가능한 관측 없음 |
+| Markdown 상대 링크 | 통과: 깨진 링크 0건 |
+| 공개 파일 보안 패턴 | 통과: 개인 절대경로·키·개인키·서명 URL 경계 패턴 0건; URL 단어 조각 오탐은 제외 |
 
 ## 실행한 주요 명령
 
@@ -165,3 +172,23 @@ EUR-Lex 결과는 발췌 불일치로 잘못 분류하지 않고 접근 제한�
 - 생성 전후 `human-review/reviews.json` SHA-256 동일
 
 AI 점수와 메모는 인간 검토를 대체하지 않으며, 최종 blind mapping 적용도 실행하지 않았다.
+
+## K-DARI 최종 설치·명칭 검증 (2026-11-21)
+
+환경은 Node.js 26.8.1, npm 11.19.0, Skills CLI 1.9.0, Codex CLI 0.169.0-alpha.11.1, Claude Code 2.1.327이었다.
+
+```bash
+npx --yes skills --version
+npx --yes skills --help
+npx --yes skills add --help
+npx --yes skills add . --list
+npx --yes skills add <local-repository> --skill k-digital-asset-research-intelligence --agent codex claude-code --copy -y --json
+```
+
+격리된 새 Git 프로젝트에서 `.agents/skills/k-digital-asset-research-intelligence`와 `.claude/skills/k-digital-asset-research-intelligence`를 생성했다. `SKILL.md` frontmatter, `references/evidence-policy.md`, `scripts/route_question.py`를 확인했고 Skills CLI 목록에는 현재 식별자 1개만 표시됐다.
+
+Codex에는 `$k-digital-asset-research-intelligence`를 명시해 웹 검색과 파일 수정을 금지한 최소 호출을 실행했다. 에이전트가 현재 frontmatter 이름과 투자 추천 금지 규칙을 응답해 명시 호출을 확인했다. Claude Code 초기화 로그에도 현재 스킬이 발견됐지만 OAuth 세션 만료로 모델 요청 전 종료되어 명시 활성화 성공으로 기록하지 않는다. 자동 활성화는 이번 정리에서 검증하지 않았다.
+
+전체 회귀는 `python3 -m unittest discover -s tests -v` 85건, Python 문법 컴파일, 두 사례 Evidence·Report validator, JSON 스키마 4종, Skills CLI 탐지와 `git diff --check`를 통과했다. 최종 원격 커밋의 fresh clone·원격 `npx skills add`와 Actions 결과는 push 후 별도로 확인한다.
+
+공개 추적 파일에서 개인 절대경로, 개인키, GitHub/AWS/Anthropic 키, 경계를 갖춘 OpenAI 키, 서명 URL 패턴을 검사했다. `sk-` 정규식의 초기 결과는 URL 내부의 일반 영단어 조각이었으며 토큰 경계를 적용하면 0건이다. 블라인드 매핑 원본은 이미 Git 이력에 추적되어 있어 내용은 열지 않고 공개 평가 오염 위험으로 별도 기록했다.

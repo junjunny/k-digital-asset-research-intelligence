@@ -1,5 +1,5 @@
 interface:
   display_name: "K-DARI"
   short_description: "공식 근거로 디지털자산 질문을 유형별 분석하는 리서치 스킬"
-  default_prompt: "Use $k-digital-asset-policy-intelligence to classify this digital-asset question, choose the matching research framework and response depth, verify current official sources when available, and add Korean context only when it is materially relevant."
+  default_prompt: "Use $k-digital-asset-research-intelligence to classify this digital-asset question, choose the matching research framework and response depth, verify current official sources when available, and add Korean context only when it is materially relevant."
 

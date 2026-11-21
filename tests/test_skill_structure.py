@@ -28,6 +28,8 @@ class SkillStructureTests(unittest.TestCase):
             "docs/RESEARCH_FRAMEWORKS.md",
             "docs/RESPONSE_MODES.md",
             "docs/GENERAL_USER_GUIDE.md",
+            "docs/MIGRATION_KDAPI_TO_KDARI.md",
+            "docs/PROJECT_STATUS_2026-11.md",
             "docs/PHASE_7.md",
             ".github/workflows/ci.yml",
         ]
@@ -37,7 +39,7 @@ class SkillStructureTests(unittest.TestCase):
     def test_skill_frontmatter(self):
         text = (ROOT / "SKILL.md").read_text(encoding="utf-8")
         self.assertTrue(text.startswith("---\n"))
-        self.assertIn("name: k-digital-asset-policy-intelligence", text)
+        self.assertIn("name: k-digital-asset-research-intelligence", text)
         self.assertNotIn("TODO", text)
 
     def test_schemas_are_json(self):

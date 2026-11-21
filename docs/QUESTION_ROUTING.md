@@ -2,7 +2,7 @@
 
 기준일: 2026-11-17
 
-K-DAPI는 질문을 먼저 분류한 뒤 필요한 방법론만 사용한다. 라우터는 답변을 생성하거나 대상을 추측하지 않으며, 결정 결과는 `scripts/route_question.py`로 재현할 수 있다.
+K-DARI는 질문을 먼저 분류한 뒤 필요한 방법론만 사용한다. 라우터는 답변을 생성하거나 대상을 추측하지 않으며, 결정 결과는 `scripts/route_question.py`로 재현할 수 있다.
 
 ```bash
 python3 scripts/route_question.py "이더리움 네트워크 평가해 줘."

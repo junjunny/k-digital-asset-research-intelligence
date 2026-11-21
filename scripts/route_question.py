@@ -242,7 +242,7 @@ def classify_question(question):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Route a natural-language K-DAPI question")
+    parser = argparse.ArgumentParser(description="Route a natural-language K-DARI question")
     parser.add_argument("question", nargs="+", help="natural-language question")
     parser.add_argument("--compact", action="store_true", help="emit compact JSON")
     args = parser.parse_args()

@@ -1,11 +1,11 @@
 ---
-name: k-digital-asset-policy-intelligence
+name: k-digital-asset-research-intelligence
 description: 일반 사용자의 자연어 질문을 분류해 디지털자산 법률·정책, 코인·프로젝트, 네트워크·프로토콜, 백서, 스테이블코인, RWA·토큰증권, 거래소 정책과 사업모델을 공식 근거로 분석하고 관련될 때 한국 맥락을 설명한다. 단순 시세 조회나 투자 추천에는 사용하지 않는다.
 ---
 
 # K-DARI — Korean Digital Asset Research Intelligence
 
-일반 사용자가 자연어만으로 시작할 수 있는 범용 디지털자산 리서치 스킬이다. K-DARI는 기존 K-DAPI의 공개 이름을 확장한 명칭이며, 설치 호환성을 위해 스킬 식별자 `k-digital-asset-policy-intelligence`를 유지한다. 질문에 맞는 방법론을 먼저 고르고, 공식 근거의 최신성과 법적 상태를 확인한 뒤, 관련성이 있을 때만 한국 규제·정책·시장과 연결한다. 결과는 법률자문이나 투자 권유가 아니다.
+일반 사용자가 자연어만으로 시작할 수 있는 범용 디지털자산 리서치 스킬이다. 현재 공개 명칭과 설치 식별자는 K-DARI와 `k-digital-asset-research-intelligence`다. 이전 K-DAPI 식별자에서 옮기는 방법은 [마이그레이션 안내](docs/MIGRATION_KDAPI_TO_KDARI.md)를 따른다. 질문에 맞는 방법론을 먼저 고르고, 공식 근거의 최신성과 법적 상태를 확인한 뒤, 관련성이 있을 때만 한국 규제·정책·시장과 연결한다. 결과는 법률자문이나 투자 권유가 아니다.
 
 ## 시작
 

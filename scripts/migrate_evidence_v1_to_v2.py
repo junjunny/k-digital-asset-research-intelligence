@@ -43,7 +43,7 @@ def migrate_payload(payload, checked_at=None):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Migrate K-DAPI Evidence v1 to v2")
+    parser = argparse.ArgumentParser(description="Migrate K-DARI Evidence v1 to v2")
     parser.add_argument("input", type=Path)
     parser.add_argument("output", type=Path)
     args = parser.parse_args()

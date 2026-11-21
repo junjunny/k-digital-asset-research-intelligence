@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""K-DAPI evidence records validator (standard library only)."""
+"""K-DARI evidence records validator (standard library only)."""
 
 import argparse
 import json
@@ -61,13 +61,13 @@ def extract_records(payload):
 def check_url(url, timeout):
     try:
         validate_remote_url(url)
-        request = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "K-DAPI-source-validator/0.1"})
+        request = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "K-DARI-source-validator/0.1"})
         with build_safe_opener().open(request, timeout=timeout) as response:
             validate_remote_url(response.geturl())
             return 200 <= response.status < 400, str(response.status)
     except urllib.error.HTTPError:
         # Some official sites return an error for HEAD while serving the same URL via GET.
-        request = urllib.request.Request(url, method="GET", headers={"User-Agent": "K-DAPI-source-validator/0.1"})
+        request = urllib.request.Request(url, method="GET", headers={"User-Agent": "K-DARI-source-validator/0.1"})
         try:
             with build_safe_opener().open(request, timeout=timeout) as response:
                 validate_remote_url(response.geturl())
@@ -172,7 +172,7 @@ def validate_records(records, check_urls=False, timeout=10):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Validate K-DAPI evidence JSON")
+    parser = argparse.ArgumentParser(description="Validate K-DARI evidence JSON")
     parser.add_argument("path", type=Path)
     parser.add_argument("--check-urls", action="store_true", help="perform live HTTP checks")
     parser.add_argument("--timeout", type=int, default=10)

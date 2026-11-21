@@ -1,16 +1,16 @@
 # General User Guide
 
-K-DAPI는 PDF나 API 키 없이 자연어 질문으로 시작할 수 있다. 최신 법률·시장·프로젝트 상태가 필요한 질문은 웹 검색 가능한 에이전트에서 사용하는 것이 좋다.
+K-DARI는 PDF나 API 키 없이 자연어 질문으로 시작할 수 있다. 최신 법률·시장·프로젝트 상태가 필요한 질문은 웹 검색 가능한 에이전트에서 사용하는 것이 좋다.
 
 ## 설치
 
 ```bash
-npx skills add junjunny/k-digital-asset-policy-intelligence@k-digital-asset-policy-intelligence
+npx skills add junjunny/k-digital-asset-research-intelligence@k-digital-asset-research-intelligence
 ```
 
 설치 후 지원 에이전트에 평소처럼 질문한다.
 
-지원 환경이 자동으로 스킬을 고르지 않으면 `$k-digital-asset-policy-intelligence`를 명시해 질문한다. 설치 성공과 자동 활성화는 별개다.
+지원 환경이 자동으로 스킬을 고르지 않으면 `$k-digital-asset-research-intelligence`를 명시해 질문한다. 설치 성공과 자동 활성화는 별개다.
 
 ## 질문 예시
 
@@ -88,7 +88,7 @@ USDC가 가격을 유지하는 방식과 준비자산·상환·디페깅 위험�
 이 코인 사도 돼?
 ```
 
-K-DAPI는 매수 결론을 대신하지 않는다. 대상을 확인한 뒤 구조·공급·기술·운영·규제 위험과 확인 체크리스트를 제공한다.
+K-DARI는 매수 결론을 대신하지 않는다. 대상을 확인한 뒤 구조·공급·기술·운영·규제 위험과 확인 체크리스트를 제공한다.
 
 ## 답변 깊이 요청
 

@@ -12,6 +12,7 @@
 - Phase 7: 12개 질문 유형 라우터, 3개 응답 모드, 유형별 연구 프레임워크, 모호성·투자안전·한국 맥락 처리, 원격 fresh install·CI 완료
 - Phase 8: fresh clone·Skills CLI 설치, 네 필수 질문 A/B 독립 리서치, 사용성·다중턴·오프라인 평가, Evidence v2, 라우터 최소 수정과 63개 회귀 테스트 완료. 인간 평가 대기
 - Phase 9: Claude 코호트 120/120 생성 완료. 조건 블라인드 AI 보조평가와 1차 자료 감사 완료, 인간 평가 대기
+- Phase 10: K-DARI 명칭·현재 저장소·스킬 식별자 통일, 로컬 격리 설치와 Codex 명시 호출 검증 완료. 인간·전문가 검토와 공개 Release는 대기
 
 ## 완료 파일군
 
@@ -50,6 +51,8 @@
 - 라우터는 규칙 기반이므로 새 용어·오탈자·복합 문맥의 의미 판단을 완전히 대체하지 않음
 - Phase 8 인간 평가표와 정책·기술·회계 핵심 주장 최종 검토
 - Phase 9 인간 검토 120건과 최종 조건 공개·분석
+- Claude Code 현재 식별자 명시 호출 재검증(OAuth 만료로 모델 요청 전 차단)
+- GitHub Release/tag와 skills.sh 등록·홍보 여부 결정
 - CLARITY의 2026년 9월 협상초안과 공식 상원 보고본·별도 S.3755의 절차적 관계 확인
 - Chainlink 공급 API·Reserve 시점, Ethereum 동적 지표, USDC 주간 동적 수치 재현 확인
 
@@ -66,3 +69,12 @@
 
 
 - Phase 9(Claude Code 코호트): 인증 차단 이력 뒤 실행을 재개해 120/120 답변과 blind copy를 완료했다. 2026-11-21 기준 AI 보조평가는 120/120, 공식·관련 근거 URL 969개, 점수 50~87점, `SUPPORTED` 6건·`MIXED` 114건이다. 인간 `reviews.json`은 변경하지 않았고 최종 인간 검토와 조건 공개는 대기 중이다.
+
+## 최종 저장소 정리 (2026-11-21)
+
+- 공개명과 현재 식별자를 K-DARI / `k-digital-asset-research-intelligence`로 통일
+- 새 GitHub 주소 기반 설치 명령, 국·영문 README, 이전 식별자 마이그레이션 문서 추가
+- Skills CLI 1.9.0에서 현재 식별자 1개 탐지, Codex·Claude Code 격리 copy 설치 확인
+- Codex 명시 호출 성공, Claude Code는 스킬 발견 후 OAuth 만료로 실제 모델 호출 미검증
+- 과거 실험 코드·기록의 K-DAPI 명칭과 설치 경로는 재현성을 위해 보존
+- 인간 검토 파일과 블라인드 매핑은 수정·적용하지 않음

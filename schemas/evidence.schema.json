@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "evidence.schema.json",
-  "title": "K-DAPI Evidence",
+  "title": "K-DARI Evidence",
   "type": "object",
   "additionalProperties": false,
   "required": [

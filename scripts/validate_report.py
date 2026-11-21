@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate K-DAPI report evidence, legal status, dates, and claim types."""
+"""Validate K-DARI report evidence, legal status, dates, and claim types."""
 
 import argparse
 import json
@@ -183,7 +183,7 @@ def validate_report(report, base_dir=None):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Validate a K-DAPI report JSON")
+    parser = argparse.ArgumentParser(description="Validate a K-DARI report JSON")
     parser.add_argument("path", type=Path)
     args = parser.parse_args()
     try:

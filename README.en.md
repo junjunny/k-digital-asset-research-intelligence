@@ -1,41 +1,36 @@
-# K-Digital Asset Policy Intelligence (K-DAPI)
+# K-DARI — Korean Digital Asset Research Intelligence
 
-K-DAPI is an Agent Skill that routes natural-language digital-asset questions to specialised, evidence-led research frameworks. It supports law and policy, coins and projects, blockchain networks, whitepapers, stablecoins, tokenised assets, exchange support policies and business models. Korean context is added only when materially relevant.
+K-DARI is an Agent Skill that routes natural-language digital-asset questions to evidence-led research frameworks. It covers law and policy, coins and projects, networks, whitepapers, stablecoins, tokenised assets, exchange policies and business models. Korean context is added only when materially relevant.
 
-Its core workflow is:
+It is not legal, tax, accounting or investment advice.
 
-> natural-language question → question type and depth → official sources → facts, claims and inferences → Korean context when relevant
-
-## Capabilities
-
-- Start from a natural-language question without requiring a PDF or API key
-- Deterministically route 12 question types and request missing identifiers
-- Select `QUICK`, `STANDARD`, or `DEEP_RESEARCH` response depth
-- Use separate frameworks for regulation, projects, networks, whitepapers, stablecoins, RWA, exchanges and business models
-- Separate enacted law, effective law, draft rules, policy announcements and guidance
-- Link major claims to Evidence IDs and confidence classifications
-- Produce a Korean research report and an English executive summary
-- Validate structured evidence and reports without mandatory third-party Python packages
-- Fetch HTML, text and PDF sources, compare excerpts, and record document hashes (`pypdf` is required for PDF extraction)
-- Validate normalised legal claim types against source status, jurisdiction and the report analysis date
-
-This skill does not provide legal or investment advice.
-
-## Install
-
-Install with the Skills CLI:
+## Quick start
 
 ```bash
-npx skills add junjunny/k-digital-asset-policy-intelligence@k-digital-asset-policy-intelligence
+npx skills add junjunny/k-digital-asset-research-intelligence@k-digital-asset-research-intelligence
 ```
 
-Alternatively, clone the repository and copy the folder containing `SKILL.md` into a supported agent's skills directory.
-
-## Example prompts
+Then ask a supported agent a natural-language question. If the agent does not select the skill automatically, invoke its current identifier explicitly:
 
 ```text
-What is the CLARITY Act? Check its current legislative status.
+Use $k-digital-asset-research-intelligence to explain the current status of the CLARITY Act using official sources.
 ```
+
+Repository discovery and isolated Codex and Claude Code installation were checked with Skills CLI 1.9.0 on 21 November 2026. Installation does not by itself prove automatic activation. See the [current project status](docs/PROJECT_STATUS_2026-11.md) for separately reported verification states.
+
+Existing users of `k-digital-asset-policy-intelligence` should follow the [K-DAPI to K-DARI migration guide](docs/MIGRATION_KDAPI_TO_KDARI.md) to avoid duplicate installations.
+
+## What it does
+
+- Routes 12 question types and requests missing identifiers
+- Selects `QUICK`, `STANDARD`, or `DEEP_RESEARCH` depth
+- Separates enacted law, future-effective law, draft rules, policy announcements and guidance
+- Links major claims to Evidence IDs and verification states
+- Compares HTML, text and PDF excerpts and records hashes
+- Avoids forcing unrelated questions into a Korean regulatory comparison
+- Replaces buy/sell conclusions with structure and risk checks
+
+Example questions:
 
 ```text
 Evaluate Ethereum as a network, including consensus, decentralisation, actual use and operational risks.
@@ -45,34 +40,31 @@ Evaluate Ethereum as a network, including consensus, decentralisation, actual us
 How does USDC maintain its price, and what are its reserve, redemption and depegging risks?
 ```
 
-```text
-Use $k-digital-asset-policy-intelligence to analyse this tokenised bond,
-compare it with Korea's token securities framework as of 2026-11-16,
-and produce a Korean report plus an English executive summary.
-```
+See the [general user guide](docs/GENERAL_USER_GUIDE.md), [question routing](docs/QUESTION_ROUTING.md), and [evidence policy](references/evidence-policy.md).
 
-## Validate
+## Validation limits
+
+`CONTENT_VERIFIED` means that the fetched source and stored excerpt matched. It does not prove the full legal meaning, issuer claims, business legality or investment safety. The EIB and Hong Kong case studies remain research drafts pending relevant expert review.
+
+Do not upload company-confidential material, personal data, private contracts, or API keys to an external AI service or a public repository. Follow your organisation's approved environment and data policy.
+
+## Research status
+
+Phase 9 generated all 120 Claude-cohort answers and completed a separate AI-assisted pre-review. Human blind review and relevant expert review remain pending. AI-assisted scores are not human approval, and no condition-level conclusion should be drawn before the review gate is completed.
+
+## Local checks
 
 ```bash
 python3 -m pip install -r requirements.txt
-python3 scripts/route_question.py "What is tokenised securities?"
-python3 scripts/verify_evidence.py examples/hong-kong-digital-green-bond/evidence.json --output /tmp/kdapi-verification.json
+python3 scripts/route_question.py "What are tokenised securities?"
 python3 scripts/validate_sources.py examples/tokenization-case-study/evidence.json
 python3 scripts/validate_report.py examples/tokenization-case-study/report.json
 python3 -m unittest discover -s tests -v
+npx skills add . --list
 ```
 
-The included [case study](examples/tokenization-case-study/report-ko.md) compares the EIB's sterling digital bond with Korea's forthcoming token-securities framework. Its evidence metadata and English summary are reproducible companion files.
-
-The independent [Hong Kong digital green bond case](examples/hong-kong-digital-green-bond/report-ko.md) exercises the full research workflow with newly collected HKMA and SFC sources, including PDF content verification.
-
-K-DAPI does not select an unspecified coin or network, force every question into a Korean token-securities analysis, or provide buy/sell and price predictions. See the [general user guide](docs/GENERAL_USER_GUIDE.md) for examples.
-
-## Independent evaluation
-
-Phase 8 installed the baseline from a fresh clone into an isolated consumer project and ran CLARITY Act, Chainlink, Ethereum and USDC questions in fresh control and K-DAPI sessions. Raw answers, core Evidence v2 records, usability failures and post-fix results are preserved in [the Phase 8 evaluation package](evaluations/phase-8/README.md). Model-assisted scores are not human approval, and implicit/automatic skill activation could not be observed separately from explicit use of the installed skill.
+Python 3.9 or later is required. PDF extraction uses `pypdf`.
 
 ## Licence
 
-MIT. Regulatory information is time-sensitive; contributions should preserve the analysis date, official source URL, legal status and Evidence ID.
-
+MIT. Historical experiment artifacts retain the earlier K-DAPI name and identifier for reproducibility.

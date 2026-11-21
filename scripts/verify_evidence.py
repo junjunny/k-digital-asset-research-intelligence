@@ -27,7 +27,7 @@ try:
 except ImportError:  # handled as a manual-review result for PDF inputs
     PdfReader = None
 
-USER_AGENT = "K-DAPI-evidence-verifier/2.0 (+https://github.com/junjunny/k-digital-asset-policy-intelligence)"
+USER_AGENT = "K-DARI-evidence-verifier/2.0 (+https://github.com/junjunny/k-digital-asset-research-intelligence)"
 RESTRICTED_CODES = {401, 403, 407, 429, 451}
 INSTRUCTION_PATTERNS = (
     "ignore previous instructions",
@@ -304,7 +304,7 @@ def load_records(path):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Verify K-DAPI source content and excerpts")
+    parser = argparse.ArgumentParser(description="Verify K-DARI source content and excerpts")
     parser.add_argument("path", type=Path)
     parser.add_argument("--output", type=Path, required=True, help="verification results JSON")
     parser.add_argument("--write-evidence", type=Path, help="write a v2 evidence/report copy with verification results")
