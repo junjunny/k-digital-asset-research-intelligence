@@ -11,14 +11,14 @@ Phase 9는 공개 명칭을 K-DARI로 정리하면서 기존 설치 슬러그와
 | K-DARI 공개명·기존 슬러그 호환 | COMPLETE |
 | 프로토콜·프롬프트·rubric·manifest 동결 | COMPLETE |
 | GitHub 원격 fresh install | COMPLETE |
-| 120개 생성 실행 | IN_PROGRESS |
-| condition-blind 자동 근거 검증·평가 | PENDING |
-| 결과 집계·통계 | PENDING |
+| 120개 생성 실행 | COMPLETE — Claude 코호트 120/120 |
+| condition-blind 자동 근거 검증·평가 | COMPLETE — AI 보조 120/120, 인간 평가와 분리 |
+| 결과 집계·통계 | PARTIAL — 자동점수 병합 완료, 인간 검토 후 조건별 최종분석 대기 |
 | 네이버 외부 E군 공식 근거 대조 | PARTIAL |
-| Corporate 포트폴리오 | PENDING |
+| Corporate 포트폴리오 | DRAFT_COMPLETE — 최종 수치·전문가 검토 반영 대기 |
 | 인간 검토 | HUMAN_REVIEW_PENDING |
 
-실험 완료 전에는 “120개 비교 검증 완료”라고 표현하지 않는다. Phase 10은 사용자 별도 승인 전 시작하지 않는다.
+120개 생성과 AI 보조평가는 완료됐지만 인간 비교 검증은 완료되지 않았다. 따라서 “인간 검증 완료” 또는 “최종 비교 검증 완료”라고 표현하지 않는다. Phase 10은 사용자 별도 승인 전 시작하지 않는다.
 
 ## 격리 문제와 조치
 
@@ -36,9 +36,9 @@ Phase 9는 공개 명칭을 K-DARI로 정리하면서 기존 설치 슬러그와
 | 자동 활성화(implicit) 관측 | COMPLETE — C/D 60/60에서 Skill 도구 호출 관측, A/B 오염 0건 |
 | Claude 120회 실행 | COMPLETE — 120/120 슬롯 정상 완료(모델 claude-sonnet-5-5, 재시도 없음 제외 초기 AUTH 차단 2건 보존) |
 | Codex 코호트 | PARTIAL — 21/120 완료(사용량 제한), 별도 보존 |
-| 근거검증·평가·통계·E군·포트폴리오 | PENDING/PARTIAL (기존 상태 유지) |
+| 근거검증·평가·통계·E군·포트폴리오 | AI 보조평가 완료, E군·인간검토·최종통계 일부 대기 |
 | 인간 검토 | HUMAN_REVIEW_PENDING |
 
 재개: `evaluations/controlled-experiment-claude/reproduce.md`. Phase 10은 시작하지 않았다.
 
-원시 사용량 요약(런타임 usage, 평가 전): 평균 output 토큰 A 1148 / B 6941 / C 2159 / D 7687, 평균 소요 A 13s / B 83s / C 25s / D 93s. 품질 점수는 아직 없어 우열 판단 불가. 블라인드 사본 120개 생성, AI 평가·근거검증은 PENDING.
+원시 사용량 요약: 평균 output 토큰 A 1148 / B 6941 / C 2159 / D 7687, 평균 소요 A 13s / B 83s / C 25s / D 93s. 블라인드 사본 120개와 AI 보조평가는 완료됐다. AI 점수만으로 조건 우열이나 최종 합격을 확정하지 않으며, 인간 검토 완료 뒤에만 blind mapping을 적용한다.

@@ -6,3 +6,6 @@ __pycache__/
 .env.*
 !.env.example
 
+# Evaluator web-search event logs may contain transient signed source URLs.
+evaluations/controlled-experiment-claude/scores/evaluator-outputs/*.jsonl
+

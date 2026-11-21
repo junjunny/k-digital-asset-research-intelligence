@@ -32,7 +32,7 @@ K-DARI(Korean Digital Asset Research Intelligence, 기존명 K-DAPI)는 일반 �
 | 6. Human Review Gate | 검증 격차 보완, 사례 품질감사, 인간 검토 패키지, Phase 7 설계 | 자동 검증과 인간 판단의 경계 및 사용자 결정사항 명시 | 구현 완료, 사용자 검토 대기 |
 | 7. General-user Router | 12개 질문 유형, 연구 프레임워크, 응답 깊이, 모호성·투자안전 처리 | 자연어 질문을 결정적으로 분류하고 적절한 방법론·깊이를 선택 | 완료 |
 | 8. Independent Breadth Validation | CLARITY Act, 코인, 네트워크, 스테이블코인 신규 질문 | 격리 설치본에서 입력부터 공식자료 기반 답변까지 독립 검증 | 구현·실험 완료, 인간 평가 대기 |
-| 9. Corporate Insight Portfolio | 금융기관 전략 비교, 내부 브리프, 분석자 기여 | 산업·정책 변화의 금융·핀테크 영향과 의사결정 시사점 제시 | 미착수 |
+| 9. Controlled Evaluation & Portfolio | 120개 통제 실험, 금융기관 전략 비교, 내부 브리프, 분석자 기여 | 자동평가와 인간 검토를 분리하고 산업·정책 변화의 의사결정 시사점 제시 | 생성·AI 보조평가·포트폴리오 초안 완료, 인간 검토 대기 |
 | 10. Release Candidate | fresh install, blind evaluation, 문서·패키지 최종 점검 | 일반 사용자 설치·사용성과 포트폴리오 품질 승인 | 미착수 |
 
 ## 품질 게이트

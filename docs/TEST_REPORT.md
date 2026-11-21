@@ -1,12 +1,12 @@
 # Test Report
 
-실행일: 2026-11-17 (Asia/Seoul)
+최종 갱신: 2026-11-21 (Asia/Seoul)
 
 ## 결과 요약
 
 | 검증 | 결과 |
 |---|---|
-| Python unittest | 통과: 63건 |
+| Python unittest | 통과: 85건 (2026-11-21 전체 재실행) |
 | 질문 라우터 | 통과: 26건 — 기존 17건 + 실제 실패 5건 + holdout·복합 유형 4건 |
 | 부정 테스트 | 통과: 인용 불일치, 다른 문서, 404, 접근 제한, 오프라인, 시행 전 오인, 정책·입법예고 오인, 오래된 자료, 관할권 혼동, 근거 불일치, 사용자 오정보, 악의적 지시문 |
 | EIB 저장 Evidence | 통과: 6/6 `CONTENT_VERIFIED`; 최신 live 재조회는 아래 제한 참조 |
@@ -35,6 +35,9 @@
 | Phase 8 신규 Evidence v2 | 11건 schema 통과; 10 `CONTENT_VERIFIED`, 1 `ACCESS_RESTRICTED` |
 | Phase 8 사용성·다중턴·오프라인 | 10개 수정 전/후, holdout 3개, 다중턴 3개, 웹 미사용 1개 기록 |
 | Phase 8 GitHub Actions CI | 통과: run `44071185525` (`fec3258`) |
+| Phase 9 Claude 코호트 | 완료: 120/120 답변·blind copy |
+| Phase 9 AI 보조평가 | 통과: 120/120 고유 ID, 점수 합계 일치, 공식·관련 URL 969개 |
+| AI 사전검토 분리 | 통과: 120개 모두 `NEEDS_HUMAN_VERIFICATION`, 인간 `reviews.json` 해시 불변 |
 
 ## 실행한 주요 명령
 
@@ -148,3 +151,17 @@ EUR-Lex 결과는 발췌 불일치로 잘못 분류하지 않고 접근 제한�
 - `python3 -m unittest discover -s tests`: 78 tests OK (신규 harness 6개: stream-json 사용량 중복 방지·N/A, 활성화 판정, 인증/한도 분류, 재개 대상 선별, 코호트 경로). 이전 54/63개는 역사적 수치.
 - 실제 `npx --yes skills add junjunny/k-digital-asset-policy-intelligence@k-digital-asset-policy-intelligence --agent claude-code --yes` exit 0, SKILL.md SHA-256 로컬 일치.
 - 실제 `claude -p` 1회 시도: AUTH_REQUIRED(OAuth 만료)로 실패 → 생성 답변 0개, 결과 없음.
+
+위 0/120은 최초 차단 이력이다. 이후 재개되어 현재 Claude 코호트는 120/120 완료됐다.
+
+## Phase 9 AI 보조 검토 (2026-11-21)
+
+- `python3 scripts/evaluate_controlled_experiment.py prepare --cohort claude`: 6개 주제 × 20개 입력 생성
+- 주제별 조건 블라인드 공식 원문 평가: 120/120, 누락·중복 없음
+- 7개 항목 점수 합계와 `total_score`: 120/120 일치
+- 결과 범위 50~87점, `SUPPORTED` 6건, `MIXED` 114건
+- 핵심 주장 집계: 반박 169건, 근거 부족 502건
+- `python3 scripts/build_ai_assisted_review.py`: 별도 AI 사전검토 120건 생성
+- 생성 전후 `human-review/reviews.json` SHA-256 동일
+
+AI 점수와 메모는 인간 검토를 대체하지 않으며, 최종 blind mapping 적용도 실행하지 않았다.
