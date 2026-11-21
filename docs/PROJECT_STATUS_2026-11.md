@@ -7,14 +7,14 @@
 | 상태 | 판정 | 근거와 한계 |
 |---|---|---|
 | `DEVELOPMENT_COMPLETE` | 완료 | 12개 질문 유형, 3개 응답 깊이, 근거·보고서 검증기와 회귀 테스트 구현 |
-| `INSTALL_VERIFIED` | 부분 완료 | Skills CLI 1.9.0 로컬 탐지와 격리 Codex·Claude Code copy 설치 확인; 현재 원격 커밋 설치는 최종 push 후 확인 필요 |
+| `INSTALL_VERIFIED` | 완료 | Skills CLI 1.9.0 로컬 탐지와 원격 `8ffdc23` fresh clone, Codex·Claude Code copy 설치·해시 일치 확인 |
 | `SKILL_DISCOVERY_VERIFIED` | 완료 | 저장소 루트에서 현재 식별자 1개 탐지 |
 | `EXPLICIT_ACTIVATION_VERIFIED` | 부분 완료 | Codex 0.169.0에서 현재 식별자 명시 호출 확인; Claude Code 2.1.327은 스킬 발견 후 OAuth 만료로 모델 요청 전 차단 |
 | `AUTO_ACTIVATION_VERIFIED` | 미검증 | 에이전트별 자동 선택을 일반화할 독립 관측이 없음 |
 | `AI_EVALUATION_COMPLETE` | 완료 | Claude 코호트 120/120 생성과 AI 보조 사전검토 완료 |
 | `HUMAN_REVIEW_PENDING` | 대기 | 120건 인간 블라인드 검토 미실시; 매핑 적용·최종 조건별 분석 금지 |
 | `EXPERT_REVIEW_PENDING` | 대기 | 사례의 법률·회계·세무·기술 핵심 판단 최종 검토 미실시 |
-| `RELEASE_PREPARATION_COMPLETE` | 진행 중 | 명칭·README·마이그레이션·보안·fresh install 최종 점검 중 |
+| `RELEASE_PREPARATION_COMPLETE` | 완료 | 명칭·README·마이그레이션·보안·원격 fresh install·Actions CI 점검 완료 |
 | `PUBLIC_RELEASE_PENDING` | 대기 | GitHub Release/tag와 skills.sh 등록·홍보는 수행하지 않음 |
 
 ## 이번 정리의 경계

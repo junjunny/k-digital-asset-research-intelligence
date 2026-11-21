@@ -12,7 +12,7 @@
 - Phase 7: 12개 질문 유형 라우터, 3개 응답 모드, 유형별 연구 프레임워크, 모호성·투자안전·한국 맥락 처리, 원격 fresh install·CI 완료
 - Phase 8: fresh clone·Skills CLI 설치, 네 필수 질문 A/B 독립 리서치, 사용성·다중턴·오프라인 평가, Evidence v2, 라우터 최소 수정과 63개 회귀 테스트 완료. 인간 평가 대기
 - Phase 9: Claude 코호트 120/120 생성 완료. 조건 블라인드 AI 보조평가와 1차 자료 감사 완료, 인간 평가 대기
-- Phase 10: K-DARI 명칭·현재 저장소·스킬 식별자 통일, 로컬 격리 설치와 Codex 명시 호출 검증 완료. 인간·전문가 검토와 공개 Release는 대기
+- Phase 10: K-DARI 명칭·현재 저장소·스킬 식별자 통일, 원격 fresh install·Actions CI와 Codex 명시 호출 검증 완료. 인간·전문가 검토와 공개 Release는 대기
 
 ## 완료 파일군
 
@@ -76,5 +76,6 @@
 - 새 GitHub 주소 기반 설치 명령, 국·영문 README, 이전 식별자 마이그레이션 문서 추가
 - Skills CLI 1.9.0에서 현재 식별자 1개 탐지, Codex·Claude Code 격리 copy 설치 확인
 - Codex 명시 호출 성공, Claude Code는 스킬 발견 후 OAuth 만료로 실제 모델 호출 미검증
+- 원격 `8ffdc23` fresh clone 85개 테스트, README 설치 명령, Codex·Claude Code 설치본 SHA-256 일치, Actions CI 성공
 - 과거 실험 코드·기록의 K-DAPI 명칭과 설치 경로는 재현성을 위해 보존
 - 인간 검토 파일과 블라인드 매핑은 수정·적용하지 않음

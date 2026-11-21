@@ -45,6 +45,8 @@
 | 자동 활성화 | 미검증: 현재 식별자에 대한 일반화 가능한 관측 없음 |
 | Markdown 상대 링크 | 통과: 깨진 링크 0건 |
 | 공개 파일 보안 패턴 | 통과: 개인 절대경로·키·개인키·서명 URL 경계 패턴 0건; URL 단어 조각 오탐은 제외 |
+| 최종 원격 fresh clone·설치 | 통과: `8ffdc23`, 85 tests, README 명령, Codex·Claude Code 설치본 SHA-256 일치 |
+| 최종 GitHub Actions CI | 통과: run `44905235685` (`8ffdc23`) |
 
 ## 실행한 주요 명령
 
@@ -189,6 +191,8 @@ npx --yes skills add <local-repository> --skill k-digital-asset-research-intelli
 
 Codex에는 `$k-digital-asset-research-intelligence`를 명시해 웹 검색과 파일 수정을 금지한 최소 호출을 실행했다. 에이전트가 현재 frontmatter 이름과 투자 추천 금지 규칙을 응답해 명시 호출을 확인했다. Claude Code 초기화 로그에도 현재 스킬이 발견됐지만 OAuth 세션 만료로 모델 요청 전 종료되어 명시 활성화 성공으로 기록하지 않는다. 자동 활성화는 이번 정리에서 검증하지 않았다.
 
-전체 회귀는 `python3 -m unittest discover -s tests -v` 85건, Python 문법 컴파일, 두 사례 Evidence·Report validator, JSON 스키마 4종, Skills CLI 탐지와 `git diff --check`를 통과했다. 최종 원격 커밋의 fresh clone·원격 `npx skills add`와 Actions 결과는 push 후 별도로 확인한다.
+전체 회귀는 `python3 -m unittest discover -s tests -v` 85건, Python 문법 컴파일, 두 사례 Evidence·Report validator, JSON 스키마 4종, Skills CLI 탐지와 `git diff --check`를 통과했다.
+
+원격 커밋 `8ffdc23d736ea8e967f0c3ac52196f55e1a15094`을 새 디렉터리에 clone해 85개 테스트를 다시 통과했다. README의 정확한 명령으로 GitHub source를 설치했고 Codex·Claude Code 설치본의 `SKILL.md`가 원격 clone과 동일한 SHA-256 `73a190bb2199b114c31a4d5923f7e8b761714b838f367586ba01a5c301321de0`임을 확인했다. GitHub Actions run `44905235685`도 성공했다.
 
 공개 추적 파일에서 개인 절대경로, 개인키, GitHub/AWS/Anthropic 키, 경계를 갖춘 OpenAI 키, 서명 URL 패턴을 검사했다. `sk-` 정규식의 초기 결과는 URL 내부의 일반 영단어 조각이었으며 토큰 경계를 적용하면 0건이다. 블라인드 매핑 원본은 이미 Git 이력에 추적되어 있어 내용은 열지 않고 공개 평가 오염 위험으로 별도 기록했다.
