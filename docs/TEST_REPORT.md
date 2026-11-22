@@ -156,16 +156,20 @@ EUR-Lex 결과는 발췌 불일치로 잘못 분류하지 않고 접근 제한�
 
 ## 공개 패키징 재검증 (2026-11-23)
 
-- `python3 -m unittest discover -s tests -v`: 85 tests OK
+- `python3 -m unittest discover -s tests -v`: 88 tests OK
 - Skill Creator `quick_validate.py`: valid
 - `npx skills add . --list`: `k-dari` 1개 탐지
-- 원격 `npx skills add junjunny/k-digital-asset-research-intelligence --list`: `k-dari` 1개 탐지
-- 원격 `--skill k-dari --global --yes --copy`: `~/.agents/skills/k-dari` 설치 성공
-- skills.sh `junjunny/k-digital-asset-research-intelligence/k-dari`: HTTP 200
-- GitHub Actions run `45042741395` (`cc6181e`): success
+- 격리 로컬 copy 설치: 25파일·152KB, 프로젝트 전용 `evaluations/`, `tests/`, `docs/` 제외 확인
+- 원격 `npx skills add junjunny/k-digital-asset-research-intelligence@k-dari --agent codex --copy -y`: 설치 성공
+- 원격 `9e5b1a7` 설치본: 25파일·152KB, `SKILL.md` SHA-256 `95ce9d2983e14e9000b4b0d1fc6938d4194b6d851e078b78b30c583506913a23`
+- skills.sh `junjunny/k-digital-asset-research-intelligence/k-dari`: HTTP 200, 설명·본문·설치 명령 표시
+- `npx skills find k-dari`와 `npx skills find K-DARI`: 새 `@k-dari` 항목이 모두 첫 번째
+- GitHub Actions run `45082535500` (`9e5b1a7`): success
 - Markdown 상대 링크 검사: 누락 0건
+- 추적 JSON 전체 파싱: 오류 0건
+- 경계를 적용한 GitHub·OpenAI·AWS 키와 개인키 패턴 검사: 0건
 
-`npx skills find k-dari`와 `npx skills find K-DARI`는 대소문자와 무관하게 같은 결과를 반환했으나, 2026-11-23 점검 시 검색 인덱스에는 이전 식별자 두 개가 남아 있었다. 새 `k-dari` 상세 페이지와 설치는 정상이며 검색 캐시 반영은 별도 대기 상태다.
+이전 식별자 두 개는 과거 설치 기록 때문에 검색 하위 결과에 남아 있다. 현재 저장소에서는 `k-dari` 하나만 발견되며, 별도 alias를 제공하지 않는다. 인간평가 0/120과 전문가 검토 대기는 공개 패키징 완료와 별개의 상태다.
 
 
 ## Phase 9 Claude Code 이관 (2026-11-18)

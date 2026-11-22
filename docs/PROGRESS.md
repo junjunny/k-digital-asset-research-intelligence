@@ -8,7 +8,7 @@
 - Phase 9: Claude 코호트 120/120 실행 완료
 - Phase 9 AI 보조 사전검토: 120/120 완료, 인간평가와 분리 보존
 - Phase 9 Human Review: 0/120, 사용자 직접 평가 대기
-- 공개 패키징: `K-DARI` 브랜드와 `k-dari` 설치 식별자, GitHub 검색 메타데이터 정리 완료
+- 공개 패키징: `skills/k-dari/` 독립 설치 구조, `K-DARI` 브랜드, GitHub·skills.sh 검색 메타데이터 정리 완료
 
 ## 구현 완료
 
@@ -25,11 +25,13 @@
 
 - 저장소: `junjunny/k-digital-asset-research-intelligence`
 - 스킬 이름: `k-dari`
+- 일반 사용자 설치본을 `skills/k-dari/`의 25파일·152KB 패키지로 분리
 - README 한·영문과 일반 사용자 가이드의 설치 명령 통일
 - Phase 0~8 문서를 `docs/archive/`로 이동하고 문서 색인 추가
 - 인간평가 진행 기록·백업·최종 집계 파일은 자동 공개되지 않도록 제외
 - 통제 실험 원본은 재현성과 불리한 결과 보존을 위해 유지
-- 원격 `k-dari` 설치와 skills.sh 상세 페이지 확인; CLI 검색 캐시 갱신 대기
+- 원격 `@k-dari` 격리 설치와 skills.sh 설명·본문·설치 명령 표시 확인
+- `npx skills find k-dari`와 `npx skills find K-DARI`에서 새 항목이 첫 번째로 검색됨
 
 ## 미완료
 

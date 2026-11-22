@@ -7,15 +7,15 @@
 | 상태 | 판정 | 근거와 한계 |
 |---|---|---|
 | `DEVELOPMENT_COMPLETE` | 완료 | 12개 질문 유형, 3개 응답 깊이, 근거·보고서 검증기와 회귀 테스트 구현 |
-| `INSTALL_VERIFIED` | 완료 | Skills CLI 1.9.0 로컬 탐지와 원격 `8ffdc23` fresh clone, Codex·Claude Code copy 설치·해시 일치 확인 |
-| `SKILL_DISCOVERY_VERIFIED` | 완료 | 저장소 루트에서 `k-dari` 1개 탐지 |
+| `INSTALL_VERIFIED` | 완료 | 원격 `9e5b1a7`에서 `@k-dari` 격리 copy 설치, 25파일·152KB 패키지와 `SKILL.md` 설명 확인 |
+| `SKILL_DISCOVERY_VERIFIED` | 완료 | `skills/k-dari/`에서 `k-dari` 1개만 탐지; 저장소 루트 중복 스킬 없음 |
 | `EXPLICIT_ACTIVATION_VERIFIED` | 부분 완료 | Codex 0.169.0에서 현재 식별자 명시 호출 확인; Claude Code 2.1.327은 스킬 발견 후 OAuth 만료로 모델 요청 전 차단 |
 | `AUTO_ACTIVATION_VERIFIED` | 미검증 | 에이전트별 자동 선택을 일반화할 독립 관측이 없음 |
 | `AI_EVALUATION_COMPLETE` | 완료 | Claude 코호트 120/120 생성과 AI 보조 사전검토 완료 |
 | `HUMAN_REVIEW_PENDING` | 대기 | 120건 인간 블라인드 검토 미실시; 매핑 적용·최종 조건별 분석 금지 |
 | `EXPERT_REVIEW_PENDING` | 대기 | 사례의 법률·회계·세무·기술 핵심 판단 최종 검토 미실시 |
 | `RELEASE_PREPARATION_COMPLETE` | 완료 | 명칭·README·마이그레이션·보안·원격 설치·Actions CI 점검 완료 |
-| `SKILLS_SH_INDEXING` | 부분 완료 | `k-dari` 상세 페이지와 원격 설치는 확인; CLI 검색 결과는 이전 식별자 캐시가 남아 갱신 대기 |
+| `SKILLS_SH_INDEXING` | 완료 | 상세 페이지가 `SKILL.md` 설명·본문·설치 명령을 표시하고 대소문자 CLI 검색에서 새 항목이 첫 번째로 노출됨 |
 
 ## 이번 정리의 경계
 
@@ -33,7 +33,7 @@
 2. 별도 승인 후에만 매핑 적용과 조건별 최종 분석을 수행한다.
 3. 법률·회계·세무·기술 전문가가 사례의 핵심 판단을 검토한다.
 4. 동적 법령·정책·프로젝트 지표를 제출 또는 배포 시점에 다시 확인한다.
-5. skills.sh 검색 반영은 인덱싱 지연이 있을 수 있으므로 설치 가능 여부와 분리해 확인한다.
+5. skills.sh 인덱스는 외부 서비스이므로 향후 구조·표시 변경 시 설치 가능 여부와 별도로 재확인한다.
 
 ## 블라인드·공개 저장소 위험
 
@@ -43,7 +43,8 @@
 
 - 공개 저장소, 기본 브랜치 `main`, MIT License, Actions CI를 확인했다.
 - 2026-11-23 저장소 description, skills.sh homepage와 `k-dari`, `agent-skills`, `digital-assets`, `cryptocurrency`, `blockchain`, `research`, `korea` topics를 반영했다.
-- skills.sh의 `k-dari` 상세 페이지는 HTTP 200으로 확인했다. `npx skills find k-dari`와 대문자 `K-DARI`는 같은 검색 결과를 반환하지만 아직 이전 두 식별자의 캐시를 보여 새 항목 검색 반영은 대기한다.
+- skills.sh의 `k-dari` 상세 페이지는 HTTP 200이며 `SKILL.md`의 K-DARI 설명·본문과 설치 명령을 표시한다.
+- `npx skills find k-dari`와 대문자 `K-DARI` 모두 `junjunny/k-digital-asset-research-intelligence@k-dari`를 첫 번째로 반환한다. 과거 식별자는 역사적 설치 수 때문에 하위 결과에 남아 있다.
 - 권장 description: `Evidence-led digital asset research Agent Skill with Korean regulatory context`
 - 권장 topics: `agent-skills`, `digital-assets`, `cryptocurrency`, `blockchain`, `research`, `korea`
 
