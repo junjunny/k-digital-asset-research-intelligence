@@ -20,19 +20,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: python -m pip install -r requirements.txt
-      - run: python -m py_compile scripts/*.py
+      - run: python -m pip install -r skills/k-dari/requirements.txt
+      - run: python -m py_compile scripts/*.py skills/k-dari/scripts/*.py
       - run: python -m unittest discover -s tests -v
-      - run: python scripts/route_question.py "CLARITY Act가 뭐야?" --compact
-      - run: python scripts/route_question.py "이 코인 어떤 거야?" --compact
-      - run: python scripts/validate_sources.py examples/tokenization-case-study/evidence.json
-      - run: python scripts/validate_report.py examples/tokenization-case-study/report.json
-      - run: python scripts/validate_sources.py examples/hong-kong-digital-green-bond/evidence.json
-      - run: python scripts/validate_report.py examples/hong-kong-digital-green-bond/report.json
-      - run: python scripts/validate_sources.py evaluations/phase-8/cases/clarity-act/evidence.json
-      - run: python scripts/validate_sources.py evaluations/phase-8/cases/chainlink/evidence.json
-      - run: python scripts/validate_sources.py evaluations/phase-8/cases/ethereum/evidence.json
-      - run: python scripts/validate_sources.py evaluations/phase-8/cases/usdc/evidence.json
+      - run: python skills/k-dari/scripts/route_question.py "CLARITY Act가 뭐야?" --compact
+      - run: python skills/k-dari/scripts/route_question.py "이 코인 어떤 거야?" --compact
+      - run: python skills/k-dari/scripts/validate_sources.py examples/tokenization-case-study/evidence.json
+      - run: python skills/k-dari/scripts/validate_report.py examples/tokenization-case-study/report.json
+      - run: python skills/k-dari/scripts/validate_sources.py examples/hong-kong-digital-green-bond/evidence.json
+      - run: python skills/k-dari/scripts/validate_report.py examples/hong-kong-digital-green-bond/report.json
+      - run: python skills/k-dari/scripts/validate_sources.py evaluations/phase-8/cases/clarity-act/evidence.json
+      - run: python skills/k-dari/scripts/validate_sources.py evaluations/phase-8/cases/chainlink/evidence.json
+      - run: python skills/k-dari/scripts/validate_sources.py evaluations/phase-8/cases/ethereum/evidence.json
+      - run: python skills/k-dari/scripts/validate_sources.py evaluations/phase-8/cases/usdc/evidence.json
       - run: python scripts/controlled_experiment.py init
       - run: python scripts/controlled_experiment.py aggregate
       - run: python -m json.tool evaluations/controlled-experiment/scores/evaluator-schema.json > /dev/null

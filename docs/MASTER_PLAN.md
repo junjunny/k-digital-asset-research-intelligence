@@ -24,7 +24,7 @@ K-DARI(Korean Digital Asset Research Intelligence, 기존명 K-DAPI)는 일반 �
 | Phase | 산출물 | 완료 기준 | 상태 |
 |---|---|---|---|
 | 0. Foundation | 아키텍처, 출처·근거 모델, 스킬 조사, 테스트 전략 | 실행 계획과 검증 방법 확정 | 완료 |
-| 1. Core Skill | `SKILL.md`, references, templates, schemas | 규격 검증 및 예시 호출 가능 | 완료 |
+| 1. Core Skill | `skills/k-dari/`의 `SKILL.md`, references, templates, schemas | 독립 설치·규격 검증 및 예시 호출 가능 | 완료 |
 | 2. Evidence Engine | 출처·보고서 검증기, 자동 테스트 | 날짜·법적 상태·근거 연결 오류 탐지 | 완료(기본 엔진) |
 | 3. Real Case | EIB 디지털 채권 국문 보고서·영문 요약·근거 JSON | 공식 자료 기반 사례 1건 검증 | 완료 |
 | 4. Open Source | 국·영문 README, 라이선스, 설치 안내, 공개 점검 | 제3자 설치·재현 가능 | 로컬 준비 완료, 공개 확인 대기 |

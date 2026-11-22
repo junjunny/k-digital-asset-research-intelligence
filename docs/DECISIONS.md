@@ -6,7 +6,7 @@
 
 ## D-002 Progressive disclosure
 
-`SKILL.md`에는 라우팅과 규제 정확성 규칙만 두고, 상세 방법론·관할권·용어는 references로 분리한다.
+`skills/k-dari/SKILL.md`에는 라우팅과 규제 정확성 규칙만 두고, 상세 방법론·관할권·용어는 같은 패키지의 `references/`로 분리한다.
 
 ## D-003 Dependency-light validation
 

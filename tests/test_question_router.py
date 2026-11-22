@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "scripts"))
+sys.path.insert(0, str(ROOT / "skills" / "k-dari" / "scripts"))
 
 from route_question import QUESTION_TYPES, RESPONSE_MODES, classify_question  # noqa: E402
 

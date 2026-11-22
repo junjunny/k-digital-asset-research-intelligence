@@ -9,7 +9,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "scripts"))
+sys.path.insert(0, str(ROOT / "skills" / "k-dari" / "scripts"))
 
 from validate_report import validate_report  # noqa: E402
 from validate_sources import validate_records  # noqa: E402

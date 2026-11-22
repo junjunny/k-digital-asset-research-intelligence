@@ -3,7 +3,8 @@
 ```text
 Natural-language question
               ↓
- route_question.py / SKILL.md
+ skills/k-dari/scripts/route_question.py
+      + skills/k-dari/SKILL.md
   type + depth + clarification
   + Korean-context decision
               ↓

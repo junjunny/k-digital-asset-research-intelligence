@@ -1,6 +1,6 @@
 # K-DARI — Korean Digital Asset Research Intelligence
 
-[English](README.en.md) · [사용 가이드](docs/GENERAL_USER_GUIDE.md) · [연구 방법론](references/research-methodology.md) · [검증 결과](docs/TEST_REPORT.md) · [프로젝트 상태](docs/PROJECT_STATUS_2026-11.md)
+[English](README.en.md) · [skills.sh](https://skills.sh/junjunny/k-digital-asset-research-intelligence/k-dari) · [사용 가이드](skills/k-dari/references/general-user-guide.md) · [연구 방법론](skills/k-dari/references/research-methodology.md) · [검증 결과](docs/TEST_REPORT.md) · [프로젝트 상태](docs/PROJECT_STATUS_2026-11.md)
 
 K-DARI(`k-dari`)는 일반 사용자의 자연어 질문을 공식 자료에 근거해 조사하는 오픈소스 디지털자산 Agent Skill입니다. 법률·정책, 코인·프로젝트, 블록체인 네트워크, 백서, 스테이블코인, RWA·토큰증권, 거래소 정책과 사업모델을 질문별 방법론으로 분석합니다. 한국 규제·정책·시장 맥락은 실제 관련성이 있을 때만 연결합니다.
 
@@ -11,7 +11,7 @@ K-DARI(`k-dari`)는 일반 사용자의 자연어 질문을 공식 자료에 근
 ## 설치
 
 ```bash
-npx skills add junjunny/k-digital-asset-research-intelligence --skill k-dari
+npx skills add junjunny/k-digital-asset-research-intelligence@k-dari
 ```
 
 설치 가능한 스킬을 먼저 확인하려면 다음 명령을 사용합니다.
@@ -55,11 +55,12 @@ USDC가 가격을 유지하는 방식과 준비자산·상환·디페깅 위험�
 
 | 경로 | 역할 |
 |---|---|
-| `SKILL.md` | 에이전트가 읽는 실행 진입점 |
-| `references/` | 연구 방법론, 근거 정책, 국내외 규제 프레임워크 |
-| `templates/` | 브리프·비교·보고서 템플릿 |
-| `schemas/` | Evidence·Finding·Report JSON Schema |
-| `scripts/` | 질문 라우터와 출처·보고서 검증 도구 |
+| `skills/k-dari/` | 일반 사용자에게 설치되는 152KB 독립 패키지 |
+| `skills/k-dari/SKILL.md` | 에이전트가 읽는 실행 진입점 |
+| `skills/k-dari/references/` | 연구 방법론, 근거 정책, 국내외 규제 프레임워크 |
+| `skills/k-dari/templates/` | 브리프·비교·보고서 템플릿 |
+| `skills/k-dari/schemas/` | Evidence·Finding·Report JSON Schema |
+| `skills/k-dari/scripts/` | 질문 라우터와 출처·보고서 검증 도구 |
 | `examples/` | EIB·홍콩 디지털채권 재현 사례 |
 | `evaluations/` | 독립 평가와 통제 실험의 감사 자료 |
 | `docs/` | 설계·품질 기준·진행 기록 |
@@ -68,13 +69,13 @@ USDC가 가격을 유지하는 방식과 준비자산·상환·디페깅 위험�
 
 ## 검증
 
-Python 3.9 이상이 필요합니다. PDF 추출 기능은 `requirements.txt`의 선택 의존성을 사용합니다.
+Python 3.9 이상이 필요합니다. PDF 추출 기능은 스킬 패키지의 `requirements.txt`에 있는 선택 의존성을 사용합니다.
 
 ```bash
-python3 -m pip install -r requirements.txt
-python3 scripts/route_question.py "토큰증권이 뭐야?"
-python3 scripts/validate_sources.py examples/tokenization-case-study/evidence.json
-python3 scripts/validate_report.py examples/tokenization-case-study/report.json
+python3 -m pip install -r skills/k-dari/requirements.txt
+python3 skills/k-dari/scripts/route_question.py "토큰증권이 뭐야?"
+python3 skills/k-dari/scripts/validate_sources.py examples/tokenization-case-study/evidence.json
+python3 skills/k-dari/scripts/validate_report.py examples/tokenization-case-study/report.json
 python3 -m unittest discover -s tests -v
 ```
 

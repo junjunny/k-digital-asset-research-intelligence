@@ -15,13 +15,13 @@
 ## 새로 설치
 
 ```bash
-npx skills add junjunny/k-digital-asset-research-intelligence --skill k-dari
+npx skills add junjunny/k-digital-asset-research-intelligence@k-dari
 ```
 
 특정 에이전트에 비대화식 copy 설치를 하려면 다음처럼 대상 에이전트를 지정할 수 있다.
 
 ```bash
-npx skills add junjunny/k-digital-asset-research-intelligence --skill k-dari --agent codex --copy -y
+npx skills add junjunny/k-digital-asset-research-intelligence@k-dari --agent codex --copy -y
 ```
 
 ## 기존 설치 이전
@@ -30,7 +30,7 @@ npx skills add junjunny/k-digital-asset-research-intelligence --skill k-dari --a
 
 ```bash
 npx skills remove k-digital-asset-policy-intelligence -y
-npx skills add junjunny/k-digital-asset-research-intelligence --skill k-dari
+npx skills add junjunny/k-digital-asset-research-intelligence@k-dari
 ```
 
 전역 설치였다면 두 명령에 `--global`을 함께 사용한다. 제거 전에 `npx skills list`와 `npx skills list --global`로 설치 범위를 확인한다.

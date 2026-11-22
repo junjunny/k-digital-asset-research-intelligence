@@ -5,15 +5,15 @@ description: K-DARI(k-dari, Korean Digital Asset Research Intelligence)는 자�
 
 # K-DARI — Korean Digital Asset Research Intelligence
 
-일반 사용자가 자연어만으로 시작할 수 있는 범용 디지털자산 리서치 스킬이다. K-DARI는 Korean Digital Asset Research Intelligence의 약칭이며, 이전 개발명은 K-DAPI였다. 이전 설치본을 정리할 때는 [마이그레이션 안내](docs/MIGRATION_KDAPI_TO_KDARI.md)를 따른다. 질문에 맞는 방법론을 먼저 고르고, 공식 근거의 최신성과 법적 상태를 확인한 뒤, 관련성이 있을 때만 한국 규제·정책·시장과 연결한다. 결과는 법률자문이나 투자 권유가 아니다.
+일반 사용자가 자연어만으로 시작할 수 있는 범용 디지털자산 리서치 스킬이다. K-DARI는 Korean Digital Asset Research Intelligence의 약칭이며, 이전 개발명은 K-DAPI였다. 질문에 맞는 방법론을 먼저 고르고, 공식 근거의 최신성과 법적 상태를 확인한 뒤, 관련성이 있을 때만 한국 규제·정책·시장과 연결한다. 결과는 법률자문이나 투자 권유가 아니다.
 
 ## 시작
 
 1. 자연어 질문에서 주제, 분석 깊이, 기준일, 관할권, 대상 독자를 파악한다. 짧은 질문은 필요한 가정을 최소화하고, 결과에 영향을 주는 누락만 질문한다.
-2. [질문 라우팅](docs/QUESTION_ROUTING.md)에 따라 주 유형·보조 유형, 답변 깊이, 확인 질문, 한국 맥락 여부를 정한다. 결정적 확인이 필요하면 `python3 scripts/route_question.py "질문"`을 사용한다.
+2. [질문 라우팅](references/question-routing.md)에 따라 주 유형·보조 유형, 답변 깊이, 확인 질문, 한국 맥락 여부를 정한다. 결정적 확인이 필요하면 `python3 scripts/route_question.py "질문"`을 사용한다.
    라우터는 단일 질문의 결정적 보조 수단이지 최종 판정자가 아니다. 후속 질문에서는 이미 확인된 대상·관할권·깊이를 대화 문맥에서 이어받고, 문맥과 라우터가 충돌하면 실제 의도에 맞게 보완한 이유를 기록한다.
 3. 대상이 불명확하면 임의의 코인·네트워크·법안을 선택하지 말고 이름·티커·네트워크·공식 URL·관할권 중 필요한 정보만 한 번에 묻는다.
-4. [질문별 연구 프레임워크](docs/RESEARCH_FRAMEWORKS.md)에서 선택된 유형만 적용한다. 모든 질문을 토큰증권 분석으로 유도하지 않는다.
+4. [질문별 연구 프레임워크](references/research-frameworks.md)에서 선택된 유형만 적용한다. 모든 질문을 토큰증권 분석으로 유도하지 않는다.
 5. 웹 검색이 가능하면 원문 법령·의회·감독기관·발행기관 자료를 확인한다. PDF 업로드나 외부 API 키는 시작 조건이 아니다. 웹 검색이 불가능하면 최신 상태를 검증할 수 없음을 답변 앞부분에 밝힌다.
 6. 상세 절차는 [연구 방법론](references/research-methodology.md), 근거 등급과 인용 규칙은 [근거 정책](references/evidence-policy.md)을 따른다.
 7. 한국 법률 분석에는 [한국 규제 프레임워크](references/korean-regulatory-framework.md), 해외 비교에는 [국제 규제 프레임워크](references/international-regulatory-framework.md)를 읽는다.
@@ -41,7 +41,7 @@ description: K-DARI(k-dari, Korean Digital Asset Research Intelligence)는 자�
 
 ## 답변 깊이
 
-[응답 모드](docs/RESPONSE_MODES.md)를 따른다.
+[응답 모드](references/response-modes.md)를 따른다.
 
 - `QUICK`: 직접 답변과 3~7개 핵심 항목
 - `STANDARD`: 구조·위험·현재 상태·주요 공식 출처
@@ -85,7 +85,7 @@ python3 scripts/validate_sources.py evidence.json
 python3 scripts/validate_report.py report.json
 ```
 
-간단 질문과 일반 분석은 보고서 템플릿을 강제하지 않는다. 사용 예시는 [일반 사용자 안내](docs/GENERAL_USER_GUIDE.md)를 따른다.
+간단 질문과 일반 분석은 보고서 템플릿을 강제하지 않는다. 사용 예시는 [일반 사용자 안내](references/general-user-guide.md)를 따른다.
 
 인터넷이 없거나 공식 사이트가 자동 접근을 제한하면 우회하지 않는다. `ACCESS_RESTRICTED` 또는 `MANUAL_REVIEW_REQUIRED`를 기록하고, 사용자가 제공한 원문은 진위가 별도 검토 대상임을 표시한다.
 

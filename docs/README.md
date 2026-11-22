@@ -2,11 +2,11 @@
 
 공개 사용자는 아래 문서부터 읽으면 된다.
 
-- [일반 사용자 가이드](GENERAL_USER_GUIDE.md)
-- [질문 라우팅](QUESTION_ROUTING.md)
-- [연구 프레임워크](RESEARCH_FRAMEWORKS.md)
-- [응답 모드](RESPONSE_MODES.md)
-- [연구 방법론](../references/research-methodology.md)
+- [일반 사용자 가이드](../skills/k-dari/references/general-user-guide.md)
+- [질문 라우팅](../skills/k-dari/references/question-routing.md)
+- [연구 프레임워크](../skills/k-dari/references/research-frameworks.md)
+- [응답 모드](../skills/k-dari/references/response-modes.md)
+- [연구 방법론](../skills/k-dari/references/research-methodology.md)
 
 ## 개발과 검증
 

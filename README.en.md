@@ -1,6 +1,6 @@
 # K-DARI — Korean Digital Asset Research Intelligence
 
-[한국어](README.md) · [User guide](docs/GENERAL_USER_GUIDE.md) · [Research methodology](references/research-methodology.md) · [Project status](docs/PROJECT_STATUS_2026-11.md)
+[한국어](README.md) · [skills.sh](https://skills.sh/junjunny/k-digital-asset-research-intelligence/k-dari) · [User guide](skills/k-dari/references/general-user-guide.md) · [Research methodology](skills/k-dari/references/research-methodology.md) · [Project status](docs/PROJECT_STATUS_2026-11.md)
 
 K-DARI (`k-dari`) is an open-source Agent Skill for evidence-led digital-asset research. It routes natural-language questions to separate methods for law and policy, coins and projects, blockchain networks, whitepapers, stablecoins, RWA and tokenised securities, exchange policies, and business models. Korean regulatory and market context is added only when materially relevant.
 
@@ -11,7 +11,7 @@ K-DARI does not provide legal advice, investment recommendations, or price predi
 ## Install
 
 ```bash
-npx skills add junjunny/k-digital-asset-research-intelligence --skill k-dari
+npx skills add junjunny/k-digital-asset-research-intelligence@k-dari
 ```
 
 To inspect the discoverable skills before installing:
@@ -50,10 +50,10 @@ When live web access or an official source is unavailable, the response must dis
 ## Validate
 
 ```bash
-python3 -m pip install -r requirements.txt
-python3 scripts/route_question.py "What are tokenised securities?"
-python3 scripts/validate_sources.py examples/tokenization-case-study/evidence.json
-python3 scripts/validate_report.py examples/tokenization-case-study/report.json
+python3 -m pip install -r skills/k-dari/requirements.txt
+python3 skills/k-dari/scripts/route_question.py "What are tokenised securities?"
+python3 skills/k-dari/scripts/validate_sources.py examples/tokenization-case-study/evidence.json
+python3 skills/k-dari/scripts/validate_report.py examples/tokenization-case-study/report.json
 python3 -m unittest discover -s tests -v
 ```
 
