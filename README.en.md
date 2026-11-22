@@ -1,58 +1,53 @@
 # K-DARI — Korean Digital Asset Research Intelligence
 
-K-DARI is an Agent Skill that routes natural-language digital-asset questions to evidence-led research frameworks. It covers law and policy, coins and projects, networks, whitepapers, stablecoins, tokenised assets, exchange policies and business models. Korean context is added only when materially relevant.
+[한국어](README.md) · [User guide](docs/GENERAL_USER_GUIDE.md) · [Research methodology](references/research-methodology.md) · [Project status](docs/PROJECT_STATUS_2026-11.md)
 
-It is not legal, tax, accounting or investment advice.
+K-DARI (`k-dari`) is an open-source Agent Skill for evidence-led digital-asset research. It routes natural-language questions to separate methods for law and policy, coins and projects, blockchain networks, whitepapers, stablecoins, RWA and tokenised securities, exchange policies, and business models. Korean regulatory and market context is added only when materially relevant.
 
-## Quick start
+> question → topic and depth → official sources → facts, inferences and unknowns → Korean context when relevant
+
+K-DARI does not provide legal advice, investment recommendations, or price predictions.
+
+## Install
 
 ```bash
-npx skills add junjunny/k-digital-asset-research-intelligence@k-digital-asset-research-intelligence
+npx skills add junjunny/k-digital-asset-research-intelligence --skill k-dari
 ```
 
-Then ask a supported agent a natural-language question. If the agent does not select the skill automatically, invoke its current identifier explicitly:
+To inspect the discoverable skills before installing:
 
-```text
-Use $k-digital-asset-research-intelligence to explain the current status of the CLARITY Act using official sources.
+```bash
+npx skills add junjunny/k-digital-asset-research-intelligence --list
 ```
 
-Repository discovery and isolated Codex and Claude Code installation were checked with Skills CLI 1.9.0 on 21 November 2026. Installation does not by itself prove automatic activation. See the [current project status](docs/PROJECT_STATUS_2026-11.md) for separately reported verification states.
-
-Existing users of `k-digital-asset-policy-intelligence` should follow the [K-DAPI to K-DARI migration guide](docs/MIGRATION_KDAPI_TO_KDARI.md) to avoid duplicate installations.
-
-## What it does
-
-- Routes 12 question types and requests missing identifiers
-- Selects `QUICK`, `STANDARD`, or `DEEP_RESEARCH` depth
-- Separates enacted law, future-effective law, draft rules, policy announcements and guidance
-- Links major claims to Evidence IDs and verification states
-- Compares HTML, text and PDF excerpts and records hashes
-- Avoids forcing unrelated questions into a Korean regulatory comparison
-- Replaces buy/sell conclusions with structure and risk checks
-
-Example questions:
+## Example questions
 
 ```text
-Evaluate Ethereum as a network, including consensus, decentralisation, actual use and operational risks.
+What is the US CLARITY Act? Check its current legislative status.
 ```
 
 ```text
-How does USDC maintain its price, and what are its reserve, redemption and depegging risks?
+Evaluate Ethereum as a network, including consensus, decentralisation, actual use, and major risks.
 ```
 
-See the [general user guide](docs/GENERAL_USER_GUIDE.md), [question routing](docs/QUESTION_ROUTING.md), and [evidence policy](references/evidence-policy.md).
+```text
+How does USDC maintain its price, and what are its reserve, redemption, and depegging risks?
+```
 
-## Validation limits
+If a coin, network, or bill is ambiguous, the skill asks for the minimum identifying information instead of choosing a target on the user's behalf.
 
-`CONTENT_VERIFIED` means that the fetched source and stored excerpt matched. It does not prove the full legal meaning, issuer claims, business legality or investment safety. The EIB and Hong Kong case studies remain research drafts pending relevant expert review.
+## Core behaviour
 
-Do not upload company-confidential material, personal data, private contracts, or API keys to an external AI service or a public repository. Follow your organisation's approved environment and data policy.
+- Routes 12 question types and selects `QUICK`, `STANDARD`, or `DEEP_RESEARCH` depth
+- Separates proposed bills, promulgated law, effective law, draft regulation, policy announcements, and guidance
+- Distinguishes issuer claims, independently verified facts, supported inferences, and unknowns
+- Records Evidence IDs, source locations, analysis dates, and verification status for material claims
+- Avoids forcing unrelated questions into Korean regulation or tokenised-securities analysis
+- Starts without requiring a PDF upload or external API key
 
-## Research status
+When live web access or an official source is unavailable, the response must disclose that current verification was not possible.
 
-Phase 9 generated all 120 Claude-cohort answers and completed a separate AI-assisted pre-review. Human blind review and relevant expert review remain pending. AI-assisted scores are not human approval, and no condition-level conclusion should be drawn before the review gate is completed.
-
-## Local checks
+## Validate
 
 ```bash
 python3 -m pip install -r requirements.txt
@@ -60,11 +55,10 @@ python3 scripts/route_question.py "What are tokenised securities?"
 python3 scripts/validate_sources.py examples/tokenization-case-study/evidence.json
 python3 scripts/validate_report.py examples/tokenization-case-study/report.json
 python3 -m unittest discover -s tests -v
-npx skills add . --list
 ```
 
-Python 3.9 or later is required. PDF extraction uses `pypdf`.
+The repository includes reproducible EIB and Hong Kong digital-bond cases, independent breadth evaluation, controlled-experiment audit records, and a separate [AI-assisted preliminary review](docs/AI_ASSISTED_REVIEW_REPORT.md). Model-assisted scores are not human approval or expert legal, accounting, or technical review.
 
-## Licence
+K-DARI stands for **Korean Digital Asset Research Intelligence**. Its searchable and installable skill identifier is the lowercase `k-dari`; the former development name `K-DAPI` remains only where needed to preserve historical evaluation records. Existing installations can use the [migration guide](docs/MIGRATION_KDAPI_TO_KDARI.md).
 
-MIT. Historical experiment artifacts retain the earlier K-DAPI name and identifier for reproducibility.
+MIT License.

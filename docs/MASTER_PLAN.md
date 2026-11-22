@@ -2,7 +2,7 @@
 
 ## 목표
 
-K-DARI(Korean Digital Asset Research Intelligence, 기존명 K-DAPI)는 일반 사용자가 자연어로 질문하는 다양한 디지털자산 주제를 공식 근거로 분석하고, 관련성이 있을 때 한국의 법률·규제·정책·시장 환경과 연결하여 한국인에게 맞춤형 인사이트를 제공하는 범용 Agent Skill을 목표로 한다. 현재 저장소와 스킬 식별자는 각각 `junjunny/k-digital-asset-research-intelligence`, `k-digital-asset-research-intelligence`다. 이전 명칭과 식별자는 과거 실험 재현 기록에서만 유지한다.
+K-DARI(Korean Digital Asset Research Intelligence, 기존명 K-DAPI)는 일반 사용자가 자연어로 질문하는 다양한 디지털자산 주제를 공식 근거로 분석하고, 관련성이 있을 때 한국의 법률·규제·정책·시장 환경과 연결하여 한국인에게 맞춤형 인사이트를 제공하는 범용 Agent Skill을 목표로 한다. 공개 저장소는 `junjunny/k-digital-asset-research-intelligence`, 검색·설치 식별자는 `k-dari`로 통일한다. 과거 실험 기록의 기존 명칭은 감사 추적을 위해 보존한다.
 
 최종 사용자는 `npx skills add`로 설치한 뒤 지원 AI 에이전트에 자연어로 질문한다. 스킬은 질문 유형과 깊이를 판별하고 적절한 방법론을 선택하여 해외·국내 공식 자료를 확인하며, 검증된 사실·근거 있는 추론·미확인 사항을 구분한다. PDF 업로드와 외부 API 키는 필수 조건이 아니다.
 
@@ -27,13 +27,13 @@ K-DARI(Korean Digital Asset Research Intelligence, 기존명 K-DAPI)는 일반 �
 | 1. Core Skill | `SKILL.md`, references, templates, schemas | 규격 검증 및 예시 호출 가능 | 완료 |
 | 2. Evidence Engine | 출처·보고서 검증기, 자동 테스트 | 날짜·법적 상태·근거 연결 오류 탐지 | 완료(기본 엔진) |
 | 3. Real Case | EIB 디지털 채권 국문 보고서·영문 요약·근거 JSON | 공식 자료 기반 사례 1건 검증 | 완료 |
-| 4. Open Source | 국·영문 README, 라이선스, 설치 안내, 공개 점검 | 제3자 설치·재현 가능 | 공개 저장소·원격 설치 확인 완료 |
+| 4. Open Source | 국·영문 README, 라이선스, 설치 안내, 공개 점검 | 제3자 설치·재현 가능 | 로컬 준비 완료, 공개 확인 대기 |
 | 5. Quality Hardening | Evidence v2, 규제 claim 검증, 부정 테스트, 독립 사례, CI | 원문·인용 검증과 fresh install, 새 질문 재현 | 구현 완료, 최종 검증 기록 참조 |
 | 6. Human Review Gate | 검증 격차 보완, 사례 품질감사, 인간 검토 패키지, Phase 7 설계 | 자동 검증과 인간 판단의 경계 및 사용자 결정사항 명시 | 구현 완료, 사용자 검토 대기 |
 | 7. General-user Router | 12개 질문 유형, 연구 프레임워크, 응답 깊이, 모호성·투자안전 처리 | 자연어 질문을 결정적으로 분류하고 적절한 방법론·깊이를 선택 | 완료 |
 | 8. Independent Breadth Validation | CLARITY Act, 코인, 네트워크, 스테이블코인 신규 질문 | 격리 설치본에서 입력부터 공식자료 기반 답변까지 독립 검증 | 구현·실험 완료, 인간 평가 대기 |
-| 9. Controlled Evaluation & Portfolio | 120개 통제 실험, 금융기관 전략 비교, 내부 브리프, 분석자 기여 | 자동평가와 인간 검토를 분리하고 산업·정책 변화의 의사결정 시사점 제시 | 생성·AI 보조평가·포트폴리오 초안 완료, 인간 검토 대기 |
-| 10. Release Candidate | fresh install, blind evaluation, 문서·패키지 최종 점검 | 일반 사용자 설치·사용성과 포트폴리오 품질 승인 | 설치·문서 준비 완료, 인간·전문가 승인 대기 |
+| 9. Controlled Evaluation | 120개 통제 실험, 블라인드 인간평가 환경, 포트폴리오 자료 | 실험 실행·보존과 인간평가 입력을 분리 | 실험 완료, 인간평가 대기 |
+| 10. Public Packaging | 공개 문서 정리, fresh install, skills.sh 검색 노출 | `k-dari` 설치·검색 가능, CI 통과, 인간평가 상태 명시 | 진행 중 |
 
 ## 품질 게이트
 
@@ -48,9 +48,9 @@ K-DARI(Korean Digital Asset Research Intelligence, 기존명 K-DAPI)는 일반 �
 
 ## Phase 8 독립 테스트 결과
 
-이전 `docs/PHASE_7_TEST_PLAN.md`는 이력으로 유지한다. Phase 8은 기준선 `ba7734e` fresh clone 설치 후 CLARITY Act, Chainlink, Ethereum, USDC를 대조군과 K-DAPI 사용군의 독립 세션에서 실제 조사했다. 라우터 테스트, 설치 성공, Evidence 원문 대조, 모델 보조점수, 인간 평가는 서로 다른 결과로 기록한다. 최종 승인은 `docs/PHASE_8_HUMAN_REVIEW.md`에서 사용자가 결정한다.
+이전 계획과 Phase 0~8 기록은 `docs/archive/`에 보존한다. Phase 8은 기준선 `ba7734e` fresh clone 설치 후 CLARITY Act, Chainlink, Ethereum, USDC를 대조군과 K-DAPI 사용군의 독립 세션에서 실제 조사했다. 라우터 테스트, 설치 성공, Evidence 원문 대조, 모델 보조점수, 인간 평가는 서로 다른 결과로 기록한다. Phase 9 인간평가는 `docs/PHASE_9_HUMAN_REVIEW.md`와 로컬 검토 환경에서 진행한다.
 
-프로젝트 신규 기능 개발은 종료했다. Phase 10은 새 기능 단계가 아니라 설치·문서·인간 검토 게이트다. Phase 11 이후의 개발 단계를 만들지 않는다.
+프로젝트 신규 기능 개발은 Phase 10에서 종료한다. Phase 11 이후의 개발 단계를 만들지 않는다.
 
 ## 후속 확장
 

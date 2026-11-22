@@ -54,5 +54,5 @@ Group A는 K-DAPI를 제공하지 않은 fresh 독립 에이전트, Group B는 �
 | Ethereum | 95 | 98 | 0 |
 | USDC | 96 | 98 | 0 |
 
-모두 권장선 80점을 넘었지만, 이는 자체 모델 보조평가이며 표본도 각 1회뿐이다. 상세 감점과 인간 확인 항목은 `evaluations/phase-8/comparison/model-assisted-evaluation.md`에 있다. 실제 정책·기술·회계 판단과 답변 가독성은 프로젝트 기획자가 `PHASE_8_HUMAN_REVIEW.md`에 직접 기록한다.
+모두 권장선 80점을 넘었지만, 이는 자체 모델 보조평가이며 표본도 각 1회뿐이다. 상세 감점과 인간 확인 항목은 `evaluations/phase-8/comparison/model-assisted-evaluation.md`에 있다. 당시 인간 검토 양식은 [Phase 8 기록](archive/PHASE_8_HUMAN_REVIEW.md)에 보존한다.
 

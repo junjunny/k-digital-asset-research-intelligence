@@ -7,7 +7,7 @@
 현재 저장소와 스킬 식별자는 다음과 같다.
 
 - 저장소: `junjunny/k-digital-asset-research-intelligence`
-- 현재 식별자: `k-digital-asset-research-intelligence`
+- 현재 식별자: `k-dari`
 - 이전 식별자: `k-digital-asset-policy-intelligence`
 
 이전 GitHub 저장소 주소는 GitHub 리디렉션이 동작할 수 있지만 영구 호환성을 보장하는 설치 인터페이스로 간주하지 않는다. 새 설치와 문서 링크에는 현재 주소를 사용한다.
@@ -15,13 +15,13 @@
 ## 새로 설치
 
 ```bash
-npx skills add junjunny/k-digital-asset-research-intelligence@k-digital-asset-research-intelligence
+npx skills add junjunny/k-digital-asset-research-intelligence --skill k-dari
 ```
 
 특정 에이전트에 비대화식 copy 설치를 하려면 다음처럼 대상 에이전트를 지정할 수 있다.
 
 ```bash
-npx skills add junjunny/k-digital-asset-research-intelligence@k-digital-asset-research-intelligence --agent codex --copy -y
+npx skills add junjunny/k-digital-asset-research-intelligence --skill k-dari --agent codex --copy -y
 ```
 
 ## 기존 설치 이전
@@ -30,7 +30,7 @@ npx skills add junjunny/k-digital-asset-research-intelligence@k-digital-asset-re
 
 ```bash
 npx skills remove k-digital-asset-policy-intelligence -y
-npx skills add junjunny/k-digital-asset-research-intelligence@k-digital-asset-research-intelligence
+npx skills add junjunny/k-digital-asset-research-intelligence --skill k-dari
 ```
 
 전역 설치였다면 두 명령에 `--global`을 함께 사용한다. 제거 전에 `npx skills list`와 `npx skills list --global`로 설치 범위를 확인한다.
@@ -47,7 +47,7 @@ npx skills add junjunny/k-digital-asset-research-intelligence@k-digital-asset-re
 
 - 설치는 Skills CLI가 지원하는 에이전트 대상에 배치할 수 있다.
 - 설치 성공, 스킬 발견, 명시적 호출, 자동 활성화는 서로 다른 검증 상태다.
-- 자동 활성화가 관측되지 않으면 `$k-digital-asset-research-intelligence`를 명시한다.
+- 자동 활성화가 관측되지 않으면 `$k-dari`를 명시한다.
 - 각 에이전트의 버전·권한·도구 설정에 따라 웹 검색과 원문 접근 결과가 달라질 수 있다.
 
 현재 확인된 상태는 [프로젝트 상태](PROJECT_STATUS_2026-11.md)와 [테스트 보고서](TEST_REPORT.md)에 기록한다.

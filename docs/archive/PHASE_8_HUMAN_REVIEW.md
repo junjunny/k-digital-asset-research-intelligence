@@ -9,10 +9,10 @@
 
 | 질문 | 대조군 | K-DAPI 사용군 | 핵심 Evidence |
 |---|---|---|---|
-| CLARITY Act | [baseline](../evaluations/phase-8/cases/clarity-act/baseline-answer.md) | [skill](../evaluations/phase-8/cases/clarity-act/skill-answer.md) | [evidence](../evaluations/phase-8/cases/clarity-act/evidence.json) |
-| Chainlink/LINK | [baseline](../evaluations/phase-8/cases/chainlink/baseline-answer.md) | [skill](../evaluations/phase-8/cases/chainlink/skill-answer.md) | [evidence](../evaluations/phase-8/cases/chainlink/evidence.json) |
-| Ethereum | [baseline](../evaluations/phase-8/cases/ethereum/baseline-answer.md) | [skill](../evaluations/phase-8/cases/ethereum/skill-answer.md) | [evidence](../evaluations/phase-8/cases/ethereum/evidence.json) |
-| USDC | [baseline](../evaluations/phase-8/cases/usdc/baseline-answer.md) | [skill](../evaluations/phase-8/cases/usdc/skill-answer.md) | [evidence](../evaluations/phase-8/cases/usdc/evidence.json) |
+| CLARITY Act | [baseline](../../evaluations/phase-8/cases/clarity-act/baseline-answer.md) | [skill](../../evaluations/phase-8/cases/clarity-act/skill-answer.md) | [evidence](../../evaluations/phase-8/cases/clarity-act/evidence.json) |
+| Chainlink/LINK | [baseline](../../evaluations/phase-8/cases/chainlink/baseline-answer.md) | [skill](../../evaluations/phase-8/cases/chainlink/skill-answer.md) | [evidence](../../evaluations/phase-8/cases/chainlink/evidence.json) |
+| Ethereum | [baseline](../../evaluations/phase-8/cases/ethereum/baseline-answer.md) | [skill](../../evaluations/phase-8/cases/ethereum/skill-answer.md) | [evidence](../../evaluations/phase-8/cases/ethereum/evidence.json) |
+| USDC | [baseline](../../evaluations/phase-8/cases/usdc/baseline-answer.md) | [skill](../../evaluations/phase-8/cases/usdc/skill-answer.md) | [evidence](../../evaluations/phase-8/cases/usdc/evidence.json) |
 
 가능하면 A/B 라벨만 보고 먼저 평가한 뒤 어느 쪽이 스킬 사용군인지 확인한다.
 
@@ -63,7 +63,7 @@
 
 ## 확인된 실패와 수정 후 판단
 
-수정 전 실패 다섯 건과 원문은 [failure log](../evaluations/phase-8/failure-log.md), 수정 후 결과는 [usability results](../evaluations/phase-8/usability/after-fix.md)에서 확인한다.
+수정 전 실패 다섯 건과 원문은 [failure log](../../evaluations/phase-8/failure-log.md), 수정 후 결과는 [usability results](../../evaluations/phase-8/usability/after-fix.md)에서 확인한다.
 
 - 수정 범위가 질문별 하드코딩이 아니라 일반적인 우선순위 개선인가: 
 - 후속 질문에서 이미 확인한 대상을 유지하는가: 

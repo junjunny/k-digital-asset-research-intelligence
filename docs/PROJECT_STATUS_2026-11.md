@@ -1,6 +1,6 @@
 # K-DARI 프로젝트 상태 — 2026-11
 
-기준일: 2026-11-21 (Asia/Seoul)
+기준일: 2026-11-23 (Asia/Seoul)
 
 이 문서는 개발, 설치, 평가, 검토와 공개 상태를 서로 섞지 않기 위한 현재 상태표다.
 
@@ -8,21 +8,21 @@
 |---|---|---|
 | `DEVELOPMENT_COMPLETE` | 완료 | 12개 질문 유형, 3개 응답 깊이, 근거·보고서 검증기와 회귀 테스트 구현 |
 | `INSTALL_VERIFIED` | 완료 | Skills CLI 1.9.0 로컬 탐지와 원격 `8ffdc23` fresh clone, Codex·Claude Code copy 설치·해시 일치 확인 |
-| `SKILL_DISCOVERY_VERIFIED` | 완료 | 저장소 루트에서 현재 식별자 1개 탐지 |
+| `SKILL_DISCOVERY_VERIFIED` | 완료 | 저장소 루트에서 `k-dari` 1개 탐지 |
 | `EXPLICIT_ACTIVATION_VERIFIED` | 부분 완료 | Codex 0.169.0에서 현재 식별자 명시 호출 확인; Claude Code 2.1.327은 스킬 발견 후 OAuth 만료로 모델 요청 전 차단 |
 | `AUTO_ACTIVATION_VERIFIED` | 미검증 | 에이전트별 자동 선택을 일반화할 독립 관측이 없음 |
 | `AI_EVALUATION_COMPLETE` | 완료 | Claude 코호트 120/120 생성과 AI 보조 사전검토 완료 |
 | `HUMAN_REVIEW_PENDING` | 대기 | 120건 인간 블라인드 검토 미실시; 매핑 적용·최종 조건별 분석 금지 |
 | `EXPERT_REVIEW_PENDING` | 대기 | 사례의 법률·회계·세무·기술 핵심 판단 최종 검토 미실시 |
-| `RELEASE_PREPARATION_COMPLETE` | 완료 | 명칭·README·마이그레이션·보안·원격 fresh install·Actions CI 점검 완료 |
-| `PUBLIC_RELEASE_PENDING` | 대기 | GitHub Release/tag와 skills.sh 등록·홍보는 수행하지 않음 |
+| `RELEASE_PREPARATION_COMPLETE` | 완료 | 명칭·README·마이그레이션·보안·원격 설치·Actions CI 점검 완료 |
+| `SKILLS_SH_INDEXING` | 진행 | `k-dari` 이름으로 공개 설치 이벤트를 생성하고 검색 반영을 확인하는 단계 |
 
 ## 이번 정리의 경계
 
 - 현재 공개명: K-DARI
 - 현재 정식명: Korean Digital Asset Research Intelligence
 - 현재 저장소: `junjunny/k-digital-asset-research-intelligence`
-- 현재 스킬 식별자: `k-digital-asset-research-intelligence`
+- 현재 스킬 식별자: `k-dari`
 - 이전 K-DAPI 명칭과 식별자는 과거 실험 재현 기록에서만 유지
 
 이번 정리는 새 연구 기능, 재실험 또는 인간 평가가 아니다. 기존 결과·원문·점수·블라인드 상태를 변경하지 않는다.
@@ -33,7 +33,7 @@
 2. 별도 승인 후에만 매핑 적용과 조건별 최종 분석을 수행한다.
 3. 법률·회계·세무·기술 전문가가 사례의 핵심 판단을 검토한다.
 4. 동적 법령·정책·프로젝트 지표를 제출 또는 배포 시점에 다시 확인한다.
-5. GitHub Release/tag, skills.sh 등록과 홍보는 사용자가 공개 시점을 결정한 뒤 별도 수행한다.
+5. skills.sh 검색 반영은 인덱싱 지연이 있을 수 있으므로 설치 가능 여부와 분리해 확인한다.
 
 ## 블라인드·공개 저장소 위험
 
@@ -42,7 +42,7 @@
 ## GitHub 메타데이터 점검
 
 - 공개 저장소, 기본 브랜치 `main`, MIT License, Actions CI를 확인했다.
-- 2026-11-21 점검 시 저장소 description과 topics는 비어 있었다.
+- 2026-11-21 점검 시 저장소 description과 topics는 비어 있었다. 2026-11-23 공개 정리에서 이를 갱신한다.
 - 권장 description: `Evidence-led digital asset research Agent Skill with Korean regulatory context`
 - 권장 topics: `agent-skills`, `digital-assets`, `cryptocurrency`, `blockchain`, `research`, `korea`
 

@@ -9,3 +9,9 @@ __pycache__/
 # Evaluator web-search event logs may contain transient signed source URLs.
 evaluations/controlled-experiment-claude/scores/evaluator-outputs/*.jsonl
 
+# Local-only human review state. Keep the empty seed file tracked, but never
+# publish a reviewer's in-progress history, backups, or finalized analysis.
+evaluations/controlled-experiment-claude/human-review/backups/
+evaluations/controlled-experiment-claude/human-review/revision-history.jsonl
+evaluations/controlled-experiment-claude/human-review/finalized-analysis.json
+

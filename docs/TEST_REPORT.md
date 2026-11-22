@@ -129,7 +129,7 @@ GitHub 원격을 `/tmp/kdapi-fresh.ZWUF4g/repo`에 새로 clone하고 별도 ven
 
 Phase 5의 실제 자연어 요구를 기준으로 홍콩 다중통화 디지털 녹색채권을 조사했고, `tests/test_e2e_workflow.py`는 커밋된 산출물과 Evidence 상태를 재검증한다. 테스트 클래스는 실제 범위를 반영해 `StoredResearchArtifactTests`로 명명했다.
 
-별도 에이전트가 격리 설치본에서 처음 보는 자연어 입력을 받아 출처 탐색부터 보고서 생성까지 실행한 blind E2E는 아니다. 이 독립 평가는 `docs/PHASE_7_TEST_PLAN.md`에만 설계했으며 사용자 승인 전 실행하지 않는다.
+별도 에이전트가 격리 설치본에서 처음 보는 자연어 입력을 받아 출처 탐색부터 보고서 생성까지 실행한 blind E2E는 아니다. 당시 독립 평가 계획은 `docs/archive/PHASE_7_TEST_PLAN.md`에 보존한다.
 
 ## Phase 6 live 확인
 

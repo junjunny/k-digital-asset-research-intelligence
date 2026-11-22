@@ -5,7 +5,7 @@ Phase 7 기준선을 fresh clone·격리 설치한 뒤 일반 에이전트와 K-
 - 기준선: `ba7734ed6e6b3b0483313d0564b12374b1d273f4`
 - 평가일: 2026-11-17 (Asia/Seoul)
 - 필수 사례: CLARITY Act, Chainlink, Ethereum, USDC
-- 사용자 평가: `docs/PHASE_8_HUMAN_REVIEW.md`
+- 사용자 평가: `../../docs/archive/PHASE_8_HUMAN_REVIEW.md`
 
 민감한 세션 정보, 인증정보와 절대 로컬 경로는 저장하지 않는다.
 

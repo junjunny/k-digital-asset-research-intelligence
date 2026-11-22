@@ -5,12 +5,12 @@ K-DARI는 PDF나 API 키 없이 자연어 질문으로 시작할 수 있다. 최
 ## 설치
 
 ```bash
-npx skills add junjunny/k-digital-asset-research-intelligence@k-digital-asset-research-intelligence
+npx skills add junjunny/k-digital-asset-research-intelligence --skill k-dari
 ```
 
 설치 후 지원 에이전트에 평소처럼 질문한다.
 
-지원 환경이 자동으로 스킬을 고르지 않으면 `$k-digital-asset-research-intelligence`를 명시해 질문한다. 설치 성공과 자동 활성화는 별개다.
+지원 환경이 자동으로 스킬을 고르지 않으면 `$k-dari`를 명시해 질문한다. 설치 성공과 자동 활성화는 별개다.
 
 ## 질문 예시
 

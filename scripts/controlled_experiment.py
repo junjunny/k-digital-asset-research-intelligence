@@ -25,7 +25,8 @@ ROOT = Path(__file__).resolve().parents[1]
 EXP = Path(os.environ.get("K_DARI_EXP_DIR") or ROOT / "evaluations" / "controlled-experiment").resolve()
 PROMPT_DIR = ROOT / "evaluations" / "controlled-experiment" / "prompts"  # frozen prompts shared by all cohorts
 MANIFEST = EXP / "manifest.json"
-SKILL_NAME = "k-digital-asset-policy-intelligence"
+SKILL_NAME = "k-dari"
+SKILL_NAMES = {SKILL_NAME, "k-digital-asset-policy-intelligence"}
 BLOCKED_RESUMABLE = {"AUTH_REQUIRED", "USAGE_LIMIT"}
 TOPICS = ("clarity_act", "ethereum", "usdc", "chainlink", "upbit", "token_securities")
 CONDITIONS = {
@@ -141,7 +142,7 @@ def parse_jsonl_events(text: str) -> tuple[str | None, dict[str, int] | None, bo
         except json.JSONDecodeError:
             continue
         serialized = json.dumps(event, ensure_ascii=False)
-        if "SKILL.md" in serialized and "k-digital-asset-policy-intelligence" in serialized:
+        if "SKILL.md" in serialized and any(name in serialized for name in SKILL_NAMES):
             activated = True
         item = event.get("item") if isinstance(event, dict) else None
         if isinstance(item, dict) and item.get("type") == "agent_message":
@@ -208,7 +209,8 @@ def parse_claude_stream(text: str) -> dict[str, Any]:
                     name = block.get("name", "")
                     tool_calls.append(name)
                     arguments = json.dumps(block.get("input", {}), ensure_ascii=False)
-                    if (name == "Skill" and SKILL_NAME in arguments) or (name == "Read" and SKILL_NAME in arguments and "SKILL.md" in arguments):
+                    invoked = any(skill_name in arguments for skill_name in SKILL_NAMES)
+                    if (name == "Skill" and invoked) or (name == "Read" and invoked and "SKILL.md" in arguments):
                         activated = True
     usage_raw: Any = "N/A"
     usage_source = "N/A"
@@ -555,7 +557,7 @@ def main() -> None:
     run_cmd.add_argument("--timeout", type=int, default=900)
     setup_cmd = sub.add_parser("setup-claude")
     setup_cmd.add_argument("--base", required=True)
-    setup_cmd.add_argument("--spec", default=f"junjunny/k-digital-asset-policy-intelligence@{SKILL_NAME}")
+    setup_cmd.add_argument("--spec", default="junjunny/k-digital-asset-research-intelligence@k-dari")
     sub.add_parser("blind")
     sub.add_parser("aggregate")
     invalidate_cmd = sub.add_parser("invalidate-existing")
