@@ -154,6 +154,19 @@ EUR-Lex 결과는 발췌 불일치로 잘못 분류하지 않고 접근 제한�
 
 이 항목은 검증 완료로 표시하지 않고 보고서 한계 또는 `NEEDS_REVIEW`로 남겼다.
 
+## 공개 패키징 재검증 (2026-11-23)
+
+- `python3 -m unittest discover -s tests -v`: 85 tests OK
+- Skill Creator `quick_validate.py`: valid
+- `npx skills add . --list`: `k-dari` 1개 탐지
+- 원격 `npx skills add junjunny/k-digital-asset-research-intelligence --list`: `k-dari` 1개 탐지
+- 원격 `--skill k-dari --global --yes --copy`: `~/.agents/skills/k-dari` 설치 성공
+- skills.sh `junjunny/k-digital-asset-research-intelligence/k-dari`: HTTP 200
+- GitHub Actions run `45042741395` (`cc6181e`): success
+- Markdown 상대 링크 검사: 누락 0건
+
+`npx skills find k-dari`와 `npx skills find K-DARI`는 대소문자와 무관하게 같은 결과를 반환했으나, 2026-11-23 점검 시 검색 인덱스에는 이전 식별자 두 개가 남아 있었다. 새 `k-dari` 상세 페이지와 설치는 정상이며 검색 캐시 반영은 별도 대기 상태다.
+
 
 ## Phase 9 Claude Code 이관 (2026-11-18)
 

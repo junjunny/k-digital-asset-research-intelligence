@@ -15,7 +15,7 @@
 | `HUMAN_REVIEW_PENDING` | 대기 | 120건 인간 블라인드 검토 미실시; 매핑 적용·최종 조건별 분석 금지 |
 | `EXPERT_REVIEW_PENDING` | 대기 | 사례의 법률·회계·세무·기술 핵심 판단 최종 검토 미실시 |
 | `RELEASE_PREPARATION_COMPLETE` | 완료 | 명칭·README·마이그레이션·보안·원격 설치·Actions CI 점검 완료 |
-| `SKILLS_SH_INDEXING` | 진행 | `k-dari` 이름으로 공개 설치 이벤트를 생성하고 검색 반영을 확인하는 단계 |
+| `SKILLS_SH_INDEXING` | 부분 완료 | `k-dari` 상세 페이지와 원격 설치는 확인; CLI 검색 결과는 이전 식별자 캐시가 남아 갱신 대기 |
 
 ## 이번 정리의 경계
 
@@ -42,7 +42,8 @@
 ## GitHub 메타데이터 점검
 
 - 공개 저장소, 기본 브랜치 `main`, MIT License, Actions CI를 확인했다.
-- 2026-11-21 점검 시 저장소 description과 topics는 비어 있었다. 2026-11-23 공개 정리에서 이를 갱신한다.
+- 2026-11-23 저장소 description, skills.sh homepage와 `k-dari`, `agent-skills`, `digital-assets`, `cryptocurrency`, `blockchain`, `research`, `korea` topics를 반영했다.
+- skills.sh의 `k-dari` 상세 페이지는 HTTP 200으로 확인했다. `npx skills find k-dari`와 대문자 `K-DARI`는 같은 검색 결과를 반환하지만 아직 이전 두 식별자의 캐시를 보여 새 항목 검색 반영은 대기한다.
 - 권장 description: `Evidence-led digital asset research Agent Skill with Korean regulatory context`
 - 권장 topics: `agent-skills`, `digital-assets`, `cryptocurrency`, `blockchain`, `research`, `korea`
 
