@@ -4,9 +4,19 @@ K-DARI는 PDF나 API 키 없이 자연어 질문으로 시작할 수 있다. 최
 
 ## 설치
 
+최신 버전 간편 설치:
+
 ```bash
 npx skills add junjunny/k-digital-asset-research-intelligence@k-dari
 ```
+
+검증 기준 릴리스 고정 설치:
+
+```bash
+npx skills add junjunny/k-digital-asset-research-intelligence@v1.0.0 --skill k-dari
+```
+
+간편 설치는 실행 시점의 기본 브랜치를 가져온다. 태그는 변경 가능성이 있으므로 장기 재현성과 공급망 통제가 특히 중요하면 저장소 보안 감사에 기록된 전체 커밋 SHA 설치를 사용한다.
 
 설치 후 지원 에이전트에 평소처럼 질문한다.
 

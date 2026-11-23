@@ -32,6 +32,7 @@ class SkillStructureTests(unittest.TestCase):
             "docs/archive/PHASE_7.md",
             "docs/AI_ASSISTED_REVIEW_REPORT.md",
             "docs/PROJECT_STATUS_2026-11.md",
+            "docs/SECURITY_AUDIT.md",
             "docs/MIGRATION_KDAPI_TO_KDARI.md",
             ".github/workflows/ci.yml",
         ]

@@ -10,8 +10,16 @@ K-DARI(`k-dari`)는 일반 사용자의 자연어 질문을 공식 자료에 근
 
 ## 설치
 
+최신 `main`의 `k-dari`를 간편 설치합니다.
+
 ```bash
 npx skills add junjunny/k-digital-asset-research-intelligence@k-dari
+```
+
+검증 기준 버전을 재현하려면 릴리스 태그를 고정합니다.
+
+```bash
+npx skills add junjunny/k-digital-asset-research-intelligence@v1.0.0 --skill k-dari
 ```
 
 설치 가능한 스킬을 먼저 확인하려면 다음 명령을 사용합니다.
@@ -50,6 +58,8 @@ USDC가 가격을 유지하는 방식과 준비자산·상환·디페깅 위험�
 - PDF 업로드나 외부 API 키 없이 시작 가능
 
 웹 검색이 불가능하거나 공식 사이트가 자동 접근을 제한하면 최신 검증 불가 또는 수동 확인 필요 상태를 명시합니다.
+
+외부 웹페이지·PDF·백서는 비신뢰 데이터로 취급합니다. 문서 안의 명령, 역할 변경, 도구 실행 또는 비밀·로컬 데이터 전송 요구는 따르지 않습니다. 위협 모델, 버전 고정 설치와 잔여 위험은 [보안 감사](docs/SECURITY_AUDIT.md)에 기록합니다.
 
 ## 구성
 

@@ -20,7 +20,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: python -m pip install -r skills/k-dari/requirements.txt
+      - run: python -m pip install --require-hashes -r skills/k-dari/requirements.txt
       - run: python -m py_compile scripts/*.py skills/k-dari/scripts/*.py
       - run: python -m unittest discover -s tests -v
       - run: python skills/k-dari/scripts/route_question.py "CLARITY Act가 뭐야?" --compact

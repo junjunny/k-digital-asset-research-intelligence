@@ -10,8 +10,16 @@ K-DARI does not provide legal advice, investment recommendations, or price predi
 
 ## Install
 
+Install the `k-dari` skill from the latest `main` branch:
+
 ```bash
 npx skills add junjunny/k-digital-asset-research-intelligence@k-dari
+```
+
+Pin the verified release when reproducibility matters:
+
+```bash
+npx skills add junjunny/k-digital-asset-research-intelligence@v1.0.0 --skill k-dari
 ```
 
 To inspect the discoverable skills before installing:
@@ -46,6 +54,8 @@ If a coin, network, or bill is ambiguous, the skill asks for the minimum identif
 - Starts without requiring a PDF upload or external API key
 
 When live web access or an official source is unavailable, the response must disclose that current verification was not possible.
+
+External webpages, PDFs, and whitepapers are treated as untrusted data. Instructions embedded in them cannot change the agent's role, authorize tool execution, or request secrets or unrelated local data. See the [security audit](docs/SECURITY_AUDIT.md) for the threat model, pinned installs, and residual risks.
 
 ## Validate
 

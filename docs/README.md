@@ -18,6 +18,7 @@
 - [독립 평가](INDEPENDENT_EVALUATION.md)
 - [AI 보조 사전검토](AI_ASSISTED_REVIEW_REPORT.md)
 - [현재 프로젝트 상태](PROJECT_STATUS_2026-11.md)
+- [보안 감사와 설치 신뢰 모델](SECURITY_AUDIT.md)
 - [K-DAPI → K-DARI 마이그레이션](MIGRATION_KDAPI_TO_KDARI.md)
 
 ## 인간 검토
