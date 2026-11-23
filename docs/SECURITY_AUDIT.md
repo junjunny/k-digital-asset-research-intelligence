@@ -1,6 +1,6 @@
 # K-DARI 보안 감사
 
-기준일: 2026-11-23 (Asia/Seoul)  
+기준일: 2026-11-23 (Asia/Seoul)
 대상: skills.sh Snyk MEDIUM WARN `W011`, `W012`와 K-DARI 공개 설치·외부 자료 검증 경로
 
 ## 결론
@@ -91,6 +91,8 @@ npx skills add junjunny/k-digital-asset-research-intelligence@k-dari
 ```bash
 npx skills add junjunny/k-digital-asset-research-intelligence@v1.0.0 --skill k-dari
 ```
+
+[GitHub Release v1.0.0](https://github.com/junjunny/k-digital-asset-research-intelligence/releases/tag/v1.0.0)은 커밋 `264f10720ee397f57a302e608b690870851a7474`를 가리킨다. Skills CLI 1.9.0 격리 설치에서 `ref=v1.0.0`, 스킬 25개 파일과 보안 지침 포함을 확인했다.
 
 감사 구현 커밋 고정 설치:
 

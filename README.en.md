@@ -22,6 +22,8 @@ Pin the verified release when reproducibility matters:
 npx skills add junjunny/k-digital-asset-research-intelligence@v1.0.0 --skill k-dari
 ```
 
+[v1.0.0 release and security changes](https://github.com/junjunny/k-digital-asset-research-intelligence/releases/tag/v1.0.0)
+
 To inspect the discoverable skills before installing:
 
 ```bash

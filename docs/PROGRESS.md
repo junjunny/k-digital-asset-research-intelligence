@@ -9,6 +9,7 @@
 - Phase 9 AI 보조 사전검토: 120/120 완료, 인간평가와 분리 보존
 - Phase 9 Human Review: 0/120, 사용자 직접 평가 대기
 - 공개 패키징: `skills/k-dari/` 독립 설치 구조, `K-DARI` 브랜드, GitHub·skills.sh 검색 메타데이터 정리 완료
+- 보안 보강: Snyk W011·W012 원인 분석, 외부 콘텐츠 신뢰 경계와 회귀 테스트, `v1.0.0` 고정 설치 경로 공개
 
 ## 구현 완료
 
@@ -32,6 +33,8 @@
 - 통제 실험 원본은 재현성과 불리한 결과 보존을 위해 유지
 - 원격 `@k-dari` 격리 설치와 skills.sh 설명·본문·설치 명령 표시 확인
 - `npx skills find k-dari`와 `npx skills find K-DARI`에서 새 항목이 첫 번째로 검색됨
+- GitHub Release `v1.0.0`, 태그 고정과 전체 커밋 SHA 고정 설치를 Skills CLI 1.9.0에서 검증
+- PDF 의존성 버전·PyPI SHA-256 고정과 CI `--require-hashes` 적용
 
 ## 미완료
 
@@ -42,3 +45,5 @@
 - 스캔 PDF OCR과 복잡한 표·각주 의미 검증
 
 자동 평가, 설치 성공, 원문 발췌 일치는 인간의 법률·사업성 판단을 대신하지 않는다.
+
+Snyk W011·W012는 보강 후에도 외부 자료 연구와 최신 브랜치 설치가 갖는 구조적 위험으로 남는다. PASS 전환을 주장하지 않으며 상세 내용은 [보안 감사](SECURITY_AUDIT.md)를 따른다.

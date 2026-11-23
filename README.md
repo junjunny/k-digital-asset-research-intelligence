@@ -22,6 +22,8 @@ npx skills add junjunny/k-digital-asset-research-intelligence@k-dari
 npx skills add junjunny/k-digital-asset-research-intelligence@v1.0.0 --skill k-dari
 ```
 
+[v1.0.0 릴리스와 보안 변경사항](https://github.com/junjunny/k-digital-asset-research-intelligence/releases/tag/v1.0.0)
+
 설치 가능한 스킬을 먼저 확인하려면 다음 명령을 사용합니다.
 
 ```bash

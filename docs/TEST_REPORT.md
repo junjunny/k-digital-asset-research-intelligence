@@ -171,6 +171,22 @@ EUR-Lex 결과는 발췌 불일치로 잘못 분류하지 않고 접근 제한�
 
 이전 식별자 두 개는 과거 설치 기록 때문에 검색 하위 결과에 남아 있다. 현재 저장소에서는 `k-dari` 하나만 발견되며, 별도 alias를 제공하지 않는다. 인간평가 0/120과 전문가 검토 대기는 공개 패키징 완료와 별개의 상태다.
 
+## Snyk W011·W012 보안 보강 (2026-11-23)
+
+- `python3 -m unittest discover -s tests -v`: 90 tests OK
+- 신규 회귀: 외부 지시 무시·규칙 ID 기록, 데이터 유출 요청 탐지, 추가 URL 미호출, 자격증명형 쿼리 차단
+- 기존 SSRF·리다이렉트·첨부 경로·원문 검증 회귀 유지
+- Skill Creator `quick_validate.py`: valid
+- `pypdf==6.21.4`, `typing_extensions==4.16.0`의 PyPI wheel SHA-256 고정
+- Python 3.9 환경에서 `pip download --require-hashes`: 성공
+- 전체 커밋 `7bd5ce84825ee4e678e17d8ecd33a41cfd394ebb --skill k-dari` 격리 설치: 25파일, `ref` 일치, 보안 지침 포함
+- 태그 `v1.0.0 --skill k-dari` 격리 설치: 25파일, `ref=v1.0.0`, 태그 대상 `264f10720ee397f57a302e608b690870851a7474`
+- GitHub Release: `https://github.com/junjunny/k-digital-asset-research-intelligence/releases/tag/v1.0.0`
+- 두 격리 설치에서 Skills CLI 1.9.0 Snyk 표시는 계속 `Med Risk`; PASS 전환 미주장
+- 감사 시작·종료 시 `human-review/reviews.json`, `results/aggregate.json`, `scores/blind-mapping.json` SHA-256 일치 확인
+
+외부 문서를 읽는 연구 기능과 최신 기본 브랜치 간편 설치는 유지했다. W011·W012는 알려진 악성 코드의 증거가 아니라 각각 간접 인젝션과 가변 공급망의 구조적 위험으로 판정했다. 탐지 휴리스틱, PDF 파서, DNS·프록시 계층, 태그 이동 가능성과 외부 호스팅 의존성은 잔여 위험이다.
+
 
 ## Phase 9 Claude Code 이관 (2026-11-18)
 
