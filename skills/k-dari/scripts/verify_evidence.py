@@ -20,7 +20,7 @@ from copy import deepcopy
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urljoin, urlsplit
+from urllib.parse import parse_qsl, urljoin, urlsplit
 
 try:
     from pypdf import PdfReader
@@ -30,13 +30,19 @@ except ImportError:  # handled as a manual-review result for PDF inputs
 USER_AGENT = "K-DARI-evidence-verifier/2.0 (+https://github.com/junjunny/k-digital-asset-research-intelligence)"
 RESTRICTED_CODES = {401, 403, 407, 429, 451}
 INSTRUCTION_PATTERNS = (
-    "ignore previous instructions",
-    "ignore all previous instructions",
-    "system prompt",
-    "you are chatgpt",
-    "이전 지시를 무시",
-    "앞선 지시를 무시",
+    ("IGNORE_OR_OVERRIDE_INSTRUCTIONS", re.compile(r"\b(?:ignore|disregard|override)\b.{0,80}\b(?:instructions?|prompts?|polic(?:y|ies)|rules?)\b", re.I)),
+    ("ROLE_OVERRIDE", re.compile(r"\b(?:you are|act as|assume the role of)\b.{0,80}\b(?:chatgpt|assistant|system|developer|administrator)\b", re.I)),
+    ("PROMPT_OR_SECRET_DISCLOSURE", re.compile(r"\b(?:reveal|show|print|disclose|return)\b.{0,80}\b(?:system prompt|developer message|hidden instructions?|api keys?|tokens?|passwords?|secrets?|credentials?)\b", re.I)),
+    ("DATA_EXFILTRATION", re.compile(r"\b(?:upload|send|post|transmit|exfiltrate)\b.{0,100}\b(?:api keys?|tokens?|passwords?|secrets?|credentials?|system prompts?|local files?|conversation|chat history|cookies?)\b", re.I)),
+    ("TOOL_OR_CODE_EXECUTION", re.compile(r"\b(?:run|execute|invoke|call|launch)\b.{0,60}\b(?:commands?|shell|tools?|scripts?|macros?|code)\b", re.I)),
+    ("KO_INSTRUCTION_OVERRIDE", re.compile(r"(?:이전|앞선|위의|기존).{0,30}(?:지시|명령|프롬프트|규칙).{0,30}(?:무시|덮어쓰|따르지)")),
+    ("KO_SECRET_OR_EXFILTRATION", re.compile(r"(?:공개|출력|업로드|전송|보내).{0,60}(?:API.?키|토큰|비밀번호|비밀|자격.?증명|시스템.?프롬프트|로컬.?파일|대화.?내용|개인정보)")),
 )
+SENSITIVE_QUERY_KEYS = {
+    "access_token", "api_key", "apikey", "auth", "authorization", "credential",
+    "key", "password", "secret", "signature", "token", "x-amz-credential",
+    "x-amz-signature", "x-goog-credential", "x-goog-signature",
+}
 ACCESS_CHALLENGE_PATTERNS = (
     "awswafintegration",
     "challenge-container",
@@ -65,6 +71,12 @@ def validate_remote_url(url):
         raise UnsafeInputError("URL hostname is required")
     if parsed.username is not None or parsed.password is not None:
         raise UnsafeInputError("credentials in URLs are not allowed")
+    sensitive_keys = sorted(
+        key for key, _ in parse_qsl(parsed.query, keep_blank_values=True)
+        if key.casefold() in SENSITIVE_QUERY_KEYS
+    )
+    if sensitive_keys:
+        raise UnsafeInputError("credential-like URL query parameters are not allowed: " + ", ".join(sensitive_keys))
     hostname = parsed.hostname.rstrip(".").casefold()
     if hostname == "localhost" or hostname.endswith(".localhost"):
         raise UnsafeInputError("localhost URLs are not allowed")
@@ -147,8 +159,7 @@ def normalize_text(value):
 
 
 def detect_untrusted_instructions(text):
-    lowered = text.lower()
-    return [pattern for pattern in INSTRUCTION_PATTERNS if pattern in lowered]
+    return [rule_id for rule_id, pattern in INSTRUCTION_PATTERNS if pattern.search(text)]
 
 
 def decode_text(data, content_type):
@@ -218,6 +229,9 @@ def base_result(method="URL_ONLY"):
         "document_access": "NOT_ACCESSED",
         "excerpt_verification": "NOT_CHECKED",
         "legal_meaning_review": "NOT_REVIEWED",
+        "content_trust": "UNTRUSTED_EXTERNAL_DATA",
+        "untrusted_instruction_detected": False,
+        "detected_instruction_patterns": [],
         "warnings": [],
         "error": None,
     }
@@ -257,6 +271,8 @@ def verify_record(record, base_dir, timeout=20, max_bytes=25_000_000):
         result["extracted_text_sha256"] = sha256(normalized_text.encode("utf-8"))
         injection_hits = detect_untrusted_instructions(normalized_text)
         if injection_hits:
+            result["untrusted_instruction_detected"] = True
+            result["detected_instruction_patterns"] = injection_hits
             result["warnings"].append("UNTRUSTED_INSTRUCTION_PATTERN: " + ", ".join(injection_hits))
         decoded_probe = decode_text(data[:100_000], response["content_type"]).casefold()
         if not normalized_text and any(pattern in decoded_probe for pattern in ACCESS_CHALLENGE_PATTERNS):
